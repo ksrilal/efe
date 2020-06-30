@@ -1,0 +1,37 @@
+{
+    "typescript.tsdk": "./node_modules/typescript/lib",
+    "tslint.enable": false,
+    "cSpell.words": [
+        "admincoursehandle",
+        "adminhome",
+        "adminpaymenthandle",
+        "adminstudenthandle",
+        "adminteacherhandle",
+        "linkedin",
+        "studentcourse",
+        "studenthome",
+        "studentprogress",
+        "teacherhome",
+        "teacherprogress",
+        "teacherupload"
+    ],
+    "workbench.colorCustomizations": {
+        "activityBar.activeBackground": "#999fff",
+        "activityBar.activeBorder": "#df000d",
+        "activityBar.background": "#999fff",
+        "activityBar.foreground": "#15202b",
+        "activityBar.inactiveForeground": "#15202b99",
+        "activityBarBadge.background": "#df000d",
+        "activityBarBadge.foreground": "#e7e7e7",
+        "statusBar.background": "#666fff",
+        "statusBar.border": "#666fff",
+        "statusBar.foreground": "#e7e7e7",
+        "statusBarItem.hoverBackground": "#999fff",
+        "titleBar.activeBackground": "#666fff",
+        "titleBar.activeForeground": "#e7e7e7",
+        "titleBar.border": "#666fff",
+        "titleBar.inactiveBackground": "#666fff99",
+        "titleBar.inactiveForeground": "#e7e7e799"
+    },
+    "peacock.color": "#666fff"
+}
