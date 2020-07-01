@@ -15,12 +15,14 @@ export class StudentHomeComponent {
   settings = {
     actions: {
       add: false,
-      delete: false
-    },
-    edit: {
-      editButtonContent: '<i class="nb-edit"></i>',
-      saveButtonContent: '<i class="nb-checkmark"></i>',
-      cancelButtonContent: '<i class="nb-close"></i>',
+      delete: false,
+      edit: false,
+      custom: [
+        {
+          name: 'view',
+          title: '<i class="fas fa-book-reader" title="VIEW"></i>'
+        },
+      ],
     },
     columns: {
       id: {
