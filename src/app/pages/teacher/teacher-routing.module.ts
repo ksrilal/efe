@@ -5,6 +5,7 @@ import { TeacherComponent } from "./teacher.component";
 import { TeacherHomeComponent } from "./teacher-home/teacher-home.component";
 import { TeacherUploadComponent } from "./teacher-upload/teacher-upload.component";
 import { TeacherProgressComponent } from "./teacher-progress/teacher-progress.component";
+import { TeacherProfileComponent } from "./teacher-profile/teacher-profile.component";
 
 const routes: Routes = [{
     path: '',
@@ -22,6 +23,10 @@ const routes: Routes = [{
             path: 'teacherprogress',
             component: TeacherProgressComponent,
           },
+          {
+            path: 'teacherprofile',
+            component: TeacherProfileComponent,
+          },
     ],
   }];
   
@@ -35,6 +40,7 @@ const routes: Routes = [{
     TeacherComponent,
     TeacherHomeComponent,
     TeacherUploadComponent,
-    TeacherProgressComponent
+    TeacherProgressComponent,
+    TeacherProfileComponent
   ];
   
