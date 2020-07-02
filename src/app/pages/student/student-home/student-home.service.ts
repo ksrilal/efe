@@ -16,4 +16,8 @@ export class StudentHomeService {
   getMy() {
     return this.afs.collection('mycourses').valueChanges({idField:"id"});
   }
+
+  add(newData){
+    this.afs.collection('mycourses').add(newData);
+  }
 }
