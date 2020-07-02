@@ -2,15 +2,20 @@
 <nb-card>
     <nb-card-header>
         <nb-card-body>
-            <button class="button button1">All Courses</button>
-            <button class="button button1">My Courses</button>
+            <button class="button button1" (click)=status1changes()>All Courses</button>
+            <button class="button button1" (click)=status2changes()>My Courses</button>
         </nb-card-body>
     </nb-card-header>
-  
+
     <nb-card-body>
-      <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)">
-      </ng2-smart-table>
+      <!-- all courses -->
+      <div *ngIf="status1">
+        <ng2-smart-table [settings]="settings" [source]="source1"></ng2-smart-table>
+      </div>
+
+      <!-- my courses -->
+      <div *ngIf="status2">
+        <ng2-smart-table [settings]="settings" [source]="source2"></ng2-smart-table>
+      </div>
     </nb-card-body>
   </nb-card>
-  
-
