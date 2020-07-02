@@ -1,1 +1,74 @@
-<p>student-profile works!</p>
+ 
+      <div *ngIf="events" class="row matCard" id="event-list">
+        <div *ngFor="let event of events; let i = index" class="col-md-3 mx-auto my-5">
+          <mat-card (click)="eventDeatils(event.eid)" class="eventlistitem">
+            <img [src]="event.photoURL" alt="Photo of a Shiba Inu" class="myImg" mat-card-image>
+            <mat-card-content style="text-align: center">
+              <p style="font-weight: bold; font-size: large">{{event.name}}</p>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div> 
+       <div class="form-group row">
+        <div class="col-sm-1"></div>
+        <div class="form-group pt-4 col-12 col-sm-5 mb-1 align-self-center">
+          <input (change)="processImage($event)" accept="image/*" class="inputfile" id="InputPhoto" type="file"
+                 value="Choose File">
+          <label class="mx-0 text-center" for="InputPhoto"><i aria-hidden="true"
+                                                              class="fa fa-upload mr-1"></i>{{filename}}</label>
+        </div>
+        <span class="col-auto  px-5 ml-3"><img *ngIf="photoURL" [src]="photoURL" class=" align-self-center"
+                                               id="displayPhoto"></span>
+      </div>  
+<div class="row">
+    <div class="col-lg-6">
+      <nb-card>
+        <nb-card-header>Student Information</nb-card-header>
+        <nb-card-body>
+          <input type="text" nbInput fullWidth placeholder="Register Number">
+          <div class="full-name-inputs">
+            <input type="text" nbInput fullWidth placeholder="First Name">
+            <input type="text" nbInput fullWidth placeholder="Last Name">            
+        </div>
+        <input type="text" nbInput fullWidth placeholder="Parent's Name">
+        <input type="text" nbInput fullWidth placeholder="Parent's Phone Number">
+        <textarea rows="5" nbInput fullWidth shape="round"  placeholder="Home address"></textarea>
+         
+        </nb-card-body>
+      </nb-card>
+      
+      
+  
+    <!-- <nb-card>
+        <nb-card-header>Select</nb-card-header>
+        <nb-card-body>
+          <nb-select selected="1">
+            <nb-option value="1">Option 1</nb-option>
+            <nb-option value="2">Option 2</nb-option>
+          </nb-select>
+        </nb-card-body> -->
+      <!-- </nb-card> -->
+    </div>  
+  </div>
+  <div class="form-group">
+    <button  class="btn btn-lg btn-black btn-info">Sumbit</button>
+  </div> 
+
+  
+  
+   <!-- <h1 class="display-5">Admin Register</h1>
+<form #form="ngForm"  (ngSubmit)="onRegister(form)">
+  <input type="hidden" name="id" #id="ngModel" [(ngModel)]="service.formData.id" >
+  <div class="form-group">
+    <input name="firstName" #firstName="ngModel" [(ngModel)]="service.formData.firstName" class="form-control" placeholder="First Name" required>
+    <div *ngIf="firstName.invalid && firstName.touched" class="validation-error">This field is required.</div>
+  </div>
+  <div class="form-group">
+    <input name="lastName" #lastName="ngModel" [(ngModel)]="service.formData.lastName" class="form-control" placeholder="Last Name" required>
+    <div *ngIf="lastName.invalid && lastName.touched" class="validation-error">This field is required.</div>
+  </div>
+  <div class="form-group">
+    <button  [disabled]="form.invalid" class="btn btn-lg btn-black btn-info">Register</button>
+  </div>  
+</form>  
+ -->
