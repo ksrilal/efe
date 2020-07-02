@@ -14,9 +14,9 @@ export class StudentProfileComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  inputFile;
-  filename = 'Profile Photo';
-  uid;
-  photoURL = '../../assets/images/default-profile.jpg';
+  // inputFile;
+  // filename = 'Profile Photo';
+  // uid;
+  // photoURL = '../../assets/images/default-profile.jpg';
 
 }
