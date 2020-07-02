@@ -31,7 +31,7 @@ export class StudentHomeComponent implements OnInit {
       custom: [
         {
           name: 'view',
-          title: '<i class="fas fa-book-reader" title="VIEW"></i>'
+          title: '<i class="fas fa-book-reader" title="Add to My Courses"></i>'
         },
       ],
     },
@@ -48,18 +48,21 @@ export class StudentHomeComponent implements OnInit {
         title: 'Tutor',
         type: 'string',
       },
-      // day: {
-      //   title: 'Day',
-      //   type: 'string',
-      // },
-      // time: {
-      //   title: 'Time',
-      //   type: 'string',
-      // },
+      day: {
+        title: 'Day',
+        type: 'string',
+      },
+      time: {
+        title: 'Time',
+        type: 'string',
+      },
       // venue: {
       //   title: 'Venue',
       //   type: 'number',
       // },
+    },
+    attr: {
+      class: 'table table-bordered'
     },
   };
 
@@ -75,6 +78,20 @@ export class StudentHomeComponent implements OnInit {
       this.source2 = result;
     });
   }
+
+  onSaveConfirm(event): void {
+    
+      if (window.confirm("Are you sure you want to add this to my courses?")) {
+        // event.confirm.resolve();
+        console.log(event.data)
+        
+        this.StudentHomeService.add(event.data);
+        //console.log(event.data)
+      } else {
+        event.confirm.reject();
+      }    
+    }
+
 
   // onDeleteConfirm(event): void {
   //   if (window.confirm('Are you sure you want to delete?')) {
