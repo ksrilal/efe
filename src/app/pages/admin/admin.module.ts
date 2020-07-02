@@ -11,6 +11,9 @@ import { AdminPaymentHandleComponent } from "./admin-payment-handle/admin-paymen
 import { AdminStudentHandleComponent } from "./admin-student-handle/admin-student-handle.component";
 import { AdminTeacherHandleComponent } from "./admin-teacher-handle/admin-teacher-handle.component";
 import { AdminProfileComponent } from './admin-profile/admin-profile.component';
+import { AdminAddStudentComponent } from './admin-add-student/admin-add-student.component';
+import { AdminAddTeacherComponent } from './admin-add-teacher/admin-add-teacher.component';
+import { AdminAddCourseComponent } from './admin-add-course/admin-add-course.component';
 
 @NgModule({
   imports: [
@@ -30,7 +33,10 @@ import { AdminProfileComponent } from './admin-profile/admin-profile.component';
     AdminPaymentHandleComponent,
     AdminStudentHandleComponent,
     AdminTeacherHandleComponent,
-    AdminProfileComponent
+    AdminProfileComponent,
+    AdminAddStudentComponent,
+    AdminAddTeacherComponent,
+    AdminAddCourseComponent
   ],
 })
 
