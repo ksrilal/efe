@@ -1,1 +1,16 @@
-<p>student-home works!</p>
+
+<nb-card>
+    <nb-card-header>
+        <nb-card-body>
+            <button class="button button1">All Courses</button>
+            <button class="button button1">My Courses</button>
+        </nb-card-body>
+    </nb-card-header>
+  
+    <nb-card-body>
+      <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)">
+      </ng2-smart-table>
+    </nb-card-body>
+  </nb-card>
+  
+

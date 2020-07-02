@@ -5,6 +5,7 @@ import { StudentComponent } from "./student.component";
 import { StudentHomeComponent } from "./student-home/student-home.component";
 import { StudentCourseComponent } from "./student-course/student-course.component";
 import { StudentProgressComponent } from "./student-progress/student-progress.component";
+import { StudentProfileComponent } from "./student-profile/student-profile.component";
 
 
 const routes: Routes = [{
@@ -23,6 +24,10 @@ const routes: Routes = [{
             path: 'studentprogress',
             component: StudentProgressComponent,
           },
+          {
+            path: 'studentprofile',
+            component: StudentProfileComponent,
+          },
     ],
   }];
   
@@ -36,6 +41,7 @@ const routes: Routes = [{
     StudentComponent,
     StudentHomeComponent,
     StudentCourseComponent,
-    StudentProgressComponent
+    StudentProgressComponent,
+    StudentProfileComponent
   ];
   
