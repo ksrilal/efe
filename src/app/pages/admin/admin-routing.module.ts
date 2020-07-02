@@ -7,6 +7,10 @@ import { AdminCourseHandleComponent } from "./admin-course-handle/admin-course-h
 import { AdminPaymentHandleComponent } from "./admin-payment-handle/admin-payment-handle.component";
 import { AdminStudentHandleComponent } from "./admin-student-handle/admin-student-handle.component";
 import { AdminTeacherHandleComponent } from "./admin-teacher-handle/admin-teacher-handle.component";
+import { AdminProfileComponent } from "./admin-profile/admin-profile.component";
+import { AdminAddCourseComponent } from "./admin-add-course/admin-add-course.component";
+import { AdminAddStudentComponent } from "./admin-add-student/admin-add-student.component";
+import { AdminAddTeacherComponent } from "./admin-add-teacher/admin-add-teacher.component";
 
 const routes: Routes = [{
     path: '',
@@ -32,6 +36,22 @@ const routes: Routes = [{
             path: 'admincoursehandle',
             component: AdminCourseHandleComponent,
           },
+          {
+            path: 'adminprofile',
+            component: AdminProfileComponent,
+          },
+          {
+            path: 'adminaddcourse',
+            component: AdminAddCourseComponent,
+          },
+          {
+            path: 'adminaddstudent',
+            component: AdminAddStudentComponent,
+          },
+          {
+            path: 'adminaddteacher',
+            component: AdminAddTeacherComponent,
+          },
     ],
   }];
   
@@ -47,6 +67,10 @@ const routes: Routes = [{
     AdminCourseHandleComponent,
     AdminPaymentHandleComponent,
     AdminStudentHandleComponent,
-    AdminTeacherHandleComponent
+    AdminTeacherHandleComponent,
+    AdminProfileComponent,
+    AdminAddCourseComponent,
+    AdminAddStudentComponent,
+    AdminAddTeacherComponent
   ];
   

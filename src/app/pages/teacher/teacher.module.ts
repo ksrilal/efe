@@ -8,6 +8,7 @@ import { TeacherHomeComponent } from "./teacher-home/teacher-home.component";
 import { TeacherUploadComponent } from "./teacher-upload/teacher-upload.component";
 import { TeacherComponent } from "./teacher.component";
 import { TeacherProgressComponent } from './teacher-progress/teacher-progress.component';
+import { TeacherProfileComponent } from './teacher-profile/teacher-profile.component';
 
 @NgModule({
   imports: [
@@ -24,7 +25,8 @@ import { TeacherProgressComponent } from './teacher-progress/teacher-progress.co
     TeacherComponent,
     TeacherHomeComponent,
     TeacherUploadComponent,
-    TeacherProgressComponent
+    TeacherProgressComponent,
+    TeacherProfileComponent
   ],
 })
 

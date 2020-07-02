@@ -10,6 +10,7 @@ import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 import { StudentModule } from "./student/student.module";
 import { TeacherModule } from "./teacher/teacher.module";
 import { AdminModule } from "./admin/admin.module";
+import { StudentHomeService } from "./student/student-home/student-home.service";
 
 @NgModule({
   imports: [
@@ -26,6 +27,8 @@ import { AdminModule } from "./admin/admin.module";
   declarations: [
     PagesComponent,
   ],
+  providers: [StudentHomeService]
+
 })
 export class PagesModule {
 }
