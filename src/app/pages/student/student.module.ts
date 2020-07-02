@@ -8,6 +8,7 @@ import { StudentHomeComponent } from './student-home/student-home.component';
 import { StudentCourseComponent } from './student-course/student-course.component';
 import { StudentProgressComponent } from './student-progress/student-progress.component';
 import { StudentProfileComponent } from './student-profile/student-profile.component';
+import {  } from "module";
 
 @NgModule({
   imports: [

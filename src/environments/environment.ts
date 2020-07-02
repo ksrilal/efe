@@ -10,4 +10,15 @@
 
 export const environment = {
   production: false,
+
+  firebase: {
+    apiKey: "AIzaSyBwKnQyDLw1QWZeHU74NQLWNXGC903dlIw",
+    authDomain: "e-for-e.firebaseapp.com",
+    databaseURL: "https://e-for-e.firebaseio.com",
+    projectId: "e-for-e",
+    storageBucket: "e-for-e.appspot.com",
+    messagingSenderId: "491507662056",
+    appId: "1:491507662056:web:2fc8cae7f76d0466039d5d",
+    measurementId: "G-BJ41H91X0T"
+  }
 };
