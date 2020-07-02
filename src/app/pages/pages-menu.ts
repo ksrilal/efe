@@ -1,4 +1,5 @@
 import { NbMenuItem } from '@nebular/theme';
+import { title } from 'process';
 
 export const MENU_ITEMS: NbMenuItem[] = [
   //**********student dashboard
@@ -67,17 +68,44 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'Admin Student Handle',
     icon: 'text-outline',
-    link: '/pages/admin/adminstudenthandle',
+    children: [
+      {
+        title: 'Register Student',
+        link: '/pages/admin/adminaddstudent',
+      },
+      {
+        title: 'Modify Student',
+        link: '/pages/admin/adminstudenthandle',
+      },
+    ]
   },
   {
     title: 'Admin Teacher Handle',
     icon: 'pie-chart-outline',
-    link: '/pages/admin/adminteacherhandle',
+    children: [
+      {
+        title: 'Register Teacher',
+        link: '/pages/admin/adminaddteacher',
+      },
+      {
+        title: 'Modify Teacher',
+        link: '/pages/admin/adminteacherhandle',
+      },
+    ]
   },
   {
     title: 'Admin Course Handle',
     icon: 'pie-chart-outline',
-    link: '/pages/admin/admincoursehandle',
+    children: [
+      {
+        title: 'Add Courses',
+        link: '/pages/admin/adminaddcourse',
+      },
+      {
+        title: 'Modify Courses',
+        link: '/pages/admin/admincoursehandle',
+      },
+    ]
   },
   {
     title: 'Admin Payments Handle',
