@@ -1,1 +1,33 @@
-<p>student-profile works!</p>
+<div class="row">
+    <div class="col-lg-6">
+      <nb-card>
+        <nb-card-header>Student Information</nb-card-header>
+        <nb-card-body>
+            <label class="image-upload-container btn btn-bwm">
+              <span>Select Image</span>
+              <input #imageInput
+                     type="file"
+                     accept="image/*"
+                     (change)="processFile(imageInput)">
+                     <span class="col-auto  px-5 ml-3"><img *ngIf="photoURL" [src]="photoURL" class=" align-self-center"
+                      id="displayPhoto"></span>
+                    </label>
+          <input type="text" nbInput fullWidth placeholder="Register Number" required>
+          <div class="full-name-inputs">
+            <input type="text" nbInput fullWidth placeholder="First Name" required>
+            <input type="text" nbInput fullWidth placeholder="Last Name" required>            
+        </div>
+        <input type="text" nbInput fullWidth placeholder="Parent's Name" required>
+        <input type="text" nbInput fullWidth placeholder="Parent's Phone Number" required>
+        <textarea rows="5" nbInput fullWidth shape="round"  placeholder="Home address" required></textarea>
+         
+        </nb-card-body>
+      </nb-card>
+    </div>  
+  </div>
+  <div class="form-group">
+    <button  class="btn btn-lg btn-black btn-info">Sumbit</button>
+  </div> 
+
+  
+
