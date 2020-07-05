@@ -25,9 +25,14 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from "../environments/environment";
+import { LoginComponent } from './login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AuthguardService } from "./authguard.service";
+import { LoginService } from "./login/login.service";
+
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, LoginComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -44,7 +49,7 @@ import { environment } from "../environments/environment";
     }),
     CoreModule.forRoot(),
     ThemeModule.forRoot(),
-
+    ReactiveFormsModule,
     AngularFireModule,
     AngularFireAuthModule,
     AngularFireStorageModule,
@@ -52,6 +57,7 @@ import { environment } from "../environments/environment";
     AngularFireModule.initializeApp(environment.firebase),
 
   ],
+  providers: [AuthguardService, LoginService],
   bootstrap: [AppComponent],
 })
 export class AppModule {
