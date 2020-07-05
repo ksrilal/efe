@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-lg-6">
-      <form [formGroup]="form">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
   
         <nb-card>
         <nb-card-header>Add Student</nb-card-header>
@@ -73,7 +73,8 @@
           </div>
             </div>
           
-            <div>
+            
+          <div>
               <input type="number" nbInput fullWidth placeholder="Phone(XXXXXXXXXX)" formControlName="mobile"
             [placeholder]="mobile.touched && mobile.invalid ? 'Phone Number(XXXXXXXXXX) Required!' : 'Phone(XXXXXXXXXX)' "
             [status]="mobile.touched && mobile.invalid ? 'danger' : 'primary' "
@@ -84,7 +85,6 @@
             </div>
             </div>
           
-          
           <textarea rows="5" nbInput fullWidth shape="round"  placeholder="Description" formControlName="des"
           [placeholder]="des.touched && des.invalid ? 'Description Required!' : 'Description'"
           [status]="des.touched && des.invalid ? 'danger' : 'primary' "
@@ -93,15 +93,11 @@
           <div class="form-group">
             <div class="full-name-inputs">
             <label>Select Profile picture</label>
-            <!-- <input type="file" accept="image/*"  class="form-control"> -->
               <input type="file" class="form-control" formControlName="pic" accept=".png,.jpg">
               <div class="alert alert-danger" *ngIf="pic.touched && pic.invalid"> This field is Required!</div>
             </div>
   
           </div>
-  
-          <!-- <input type="hidden" formControlName="latitude">
-          <input type="hidden" formControlName="longitude"> -->
   
   
             <button  nbButton status="primary" hero [disabled]="form.invalid">
