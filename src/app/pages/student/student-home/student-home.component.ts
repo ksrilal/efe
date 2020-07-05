@@ -36,26 +36,26 @@ export class StudentHomeComponent implements OnInit {
       ],
     },
     columns: {
-      ccode: {
+      cuid: {
         title: 'Course Code',
         type: 'number',
       },
-      cname: {
+      name: {
         title: 'Course Name',
         type: 'string',
       },
-      cteacher: {
+      tname: {
         title: 'Tutor',
         type: 'string',
       },
-      day: {
+      tid: {
         title: 'Day',
         type: 'string',
       },
-      time: {
-        title: 'Time',
-        type: 'string',
-      },
+      // time: {
+      //   title: 'Time',
+      //   type: 'string',
+      // },
       // venue: {
       //   title: 'Venue',
       //   type: 'number',
