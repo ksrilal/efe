@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-//import { AngularFireStorage } from '@angular/fire/storage';
+import { AdminStudentService } from '../admin-student.service'
 import { from } from 'rxjs';
 //import * as firebase from 'firebase/app';
 
@@ -12,13 +12,12 @@ import { from } from 'rxjs';
 
 export class AdminAddStudentComponent implements OnInit {
 
-  constructor() { }
+  constructor(private AdminStudentService: AdminStudentService) { }
 
   ngOnInit(): void {
   }
 
   form = new FormGroup({
-    //userName: new FormControl("", Validators.required),
     name: new FormControl("", Validators.required),
     lname: new FormControl("", Validators.required),
     des: new FormControl("", Validators.required),
@@ -37,9 +36,15 @@ export class AdminAddStudentComponent implements OnInit {
       Validators.required, Validators.minLength(8),
     ]),
     gender: new FormControl("", Validators.required),
-    // latitude: new FormControl(""),
-    // longitude: new FormControl(""),
   });
+
+  onSubmit() {
+
+    this.AdminStudentService.add(this.form.value);
+    
+ this.form.reset();
+
+}
 
   get email() {
     return this.form.get("email");

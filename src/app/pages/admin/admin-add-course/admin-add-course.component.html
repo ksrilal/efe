@@ -1,1 +1,49 @@
-<p>admin-add-course works!</p>
+<div class="row">
+    <div class="col-lg-6">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+  
+        <nb-card>
+        <nb-card-header>Add Course</nb-card-header>
+        <nb-card-body>
+   
+            <label class="col-sm-3 label">Course Name : </label>
+            <input type="text" nbInput fullWidth placeholder="Course Name" formControlName="name"
+                [placeholder]="
+                  name.touched && name.invalid
+                    ? 'Course Name Required!'
+                    : 'Course Name'
+                "
+                [status]="
+                  name.touched && name.invalid ? 'danger' : 'primary'
+                ">
+
+            <label class="col-sm-3 label">Course Id : </label>
+            <input type="text" nbInput fullWidth placeholder="Course id" formControlName="cuid"
+                [placeholder]="cuid.touched && cuid.invalid ? 'Course ID Required!' : 'Course Id' "
+                [status]="cuid.touched && cuid.invalid ? 'danger' : 'primary' "
+            >
+            
+            <label class="col-sm-3 label">Teacher's Name : </label>
+            <input type="text" nbInput fullWidth placeholder="Teacher\'s Name" formControlName="tname"
+                [placeholder]="tname.touched && tname.invalid ? 'Teacher\'s Name Required!' : 'Teacher\'s Name' "
+                [status]="tname.touched && tname.invalid ? 'danger' : 'primary' "
+            >
+
+            <label class="col-sm-6 label">Teacher's Registation Number : </label>
+            <input type="text" nbInput fullWidth placeholder="Teacher\'s Registation Number" formControlName="tid"
+                [placeholder]="tid.touched && tid.invalid ? 'Teacher\'s Registation Number Required!' : 'Teacher\'s Registation Number' "
+                [status]="tid.touched && tid.invalid ? 'danger' : 'primary' "
+            >
+  
+            <button  nbButton status="primary" hero [disabled]="form.invalid">
+              Add Course
+            </button>
+  
+        </nb-card-body>
+      </nb-card>
+  
+      </form>
+      
+    </div>
+  </div>
+

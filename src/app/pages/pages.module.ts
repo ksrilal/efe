@@ -10,6 +10,12 @@ import { StudentModule } from "./student/student.module";
 import { TeacherModule } from "./teacher/teacher.module";
 import { AdminModule } from "./admin/admin.module";
 import { StudentHomeService } from "./student/student-home/student-home.service";
+
+import { AdminCoursService } from "./admin/admin-cours.service";
+import { AdminStudentService } from "./admin/admin-student.service";
+import { AdminTeacherService } from "./admin/admin-teacher.service";
+import { from } from 'rxjs';
+
 import { AuthguardService } from "../authguard.service";
 
 @NgModule({
@@ -27,7 +33,9 @@ import { AuthguardService } from "../authguard.service";
   declarations: [
     PagesComponent,
   ],
-  providers: [StudentHomeService, AuthguardService]
+
+  providers: [StudentHomeService, AdminCoursService, AdminStudentService, AdminTeacherService]
+
 
 })
 export class PagesModule {
