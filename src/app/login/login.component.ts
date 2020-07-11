@@ -14,21 +14,21 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {}
   form = new FormGroup({
-    r_number: new FormControl("", Validators.required),
+    e_mail: new FormControl("", Validators.required),
     password: new FormControl("", Validators.required)
   });
-  get r_number() {
-    return this.form.get("r_number");
+  get e_mail() {
+    return this.form.get("e_mail");
   }
   get password() {
     return this.form.get("password");
   }
-status = false;
-  onSubmit(r_number, password) {
+  onSubmit(e_mail, password) {
     // tslint:disable-next-line: no-console
     console.log("hello1");
-    //this.loginService.SignIn(r_number, password);
-    this.LoginService.change();
-  } 
+    console.log(password);
+    console.log("hello2");
+    this.LoginService.SignIn(e_mail, password);
+  }
 
 }

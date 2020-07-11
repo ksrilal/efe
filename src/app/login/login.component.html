@@ -6,7 +6,7 @@
       <a href="#"> <h6>Contact Us</h6> </a>
     </div>
     <div class="p-2">
-      <a href="#"> <h6>Request for Registration</h6> </a>
+      <a href="#"> <h6>Apply to Registeration</h6> </a>
     </div>
   </div>
 
@@ -15,20 +15,20 @@
         <form
           [formGroup]="form"
           class="container formclass"
-          (ngSubmit)="onSubmit(r_number.value, password.value)"
+          (ngSubmit)="onSubmit(e_mail.value, password.value)"
         >
           <h1>E for E-learning</h1>
           <div>
-            <label for="rnumber"><b>Registration Number</b></label>
+            <label for="e_mail"><b>E-mail</b></label>
             <input
               type="text"
-              placeholder="Enter Registration Number"
-              name="rnumber"
+              placeholder="Enter E-mail"
+              name="e_mail"
               required
-              formControlName="r_number"
+              formControlName="e_mail"
             />
-            <div *ngIf="r_number.touched && r_number.invalid">
-              <p style="color: crimson;">Registration Number is required</p>
+            <div *ngIf="e_mail.touched && e_mail.invalid">
+              <p style="color: crimson;">E mail is required</p>
             </div>
           </div>
           <div>
@@ -36,7 +36,7 @@
             <input
               type="password"
               placeholder="Enter Password"
-              name="psw"
+              name="password"
               required
               formControlName="password"
             />

@@ -13,53 +13,23 @@ import { AuthguardService } from "./authguard.service";
 
 export const routes: Routes = [
   {
-    path: "auth",
-    component: NbAuthComponent,
-    children: [
-      {
-        path: "",
-        component: NbLoginComponent
-      },
-      {
-        path: "login",
-        component: NbLoginComponent
-      },
-      {
-        path: "register",
-        component: NbRegisterComponent
-      },
-      {
-        path: "logout",
-        component: NbLogoutComponent
-      },
-      {
-        path: "request-password",
-        component: NbRequestPasswordComponent
-      },
-      {
-        path: "reset-password",
-        component: NbResetPasswordComponent
-      }
-    ]
-  },
-  {
     path: "pages",
     loadChildren: () =>
       import("./pages/pages.module").then(m => m.PagesModule),
-    //canActivate: [AuthguardService]
+      canActivate: [AuthguardService]
+  },
+  {
+    path: "login",
+    component: LoginComponent
   },
   {
     path: "",
     redirectTo: "pages",
     pathMatch: "full",
-   // canActivate: [AuthguardService]
+    canActivate: [AuthguardService]
   },
   { path: "**", redirectTo: "pages",
-    //canActivate: [AuthguardService]
-  },
-  {
-    path: "login",
-    component: LoginComponent
+    canActivate: [AuthguardService]
   },
 ];
 
