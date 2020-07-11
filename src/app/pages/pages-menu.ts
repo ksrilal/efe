@@ -4,6 +4,12 @@ import { title } from 'process';
 export const MENU_ITEMS: NbMenuItem[] = [
   //**********student dashboard
   {
+    title: "Dashboard",
+    icon: "home-outline",
+    link: "/pages/iot-dashboard",
+    home: true
+  },
+  {
     title: 'STUDENTS',
     group: true,
   },
@@ -11,7 +17,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
     title: 'Student Dashboard',
     icon: 'home-outline',
     link: '/pages/student/studenthome',
-    home: true,
+   // home: true,
   },
   {
     title: 'Student Progress',

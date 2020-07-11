@@ -13,26 +13,19 @@ export class AuthguardService implements CanActivate {
     
   }
 
-  canActivate() :boolean {
-    
-    if(this.LoginService.status==true){
-      console.log("true");
+  canActivate() {
+    var roleType = localStorage.getItem("role");
+
+    if (this.LoginService.isAuthenticated && roleType != null) {
+      console.log("user is  authenticated");
+
       return true;
-    }else {
-      console.log("false");
+    } else {
+      console.log("user is not authenticated");
+      this.router.navigate(["/login"]);
+
       return false;
     }
-  }
-
-  // canActivate() {
-  //   return this.authService.isAuthenticated()
-  //     .pipe(
-  //       tap(authenticated => {
-  //         if (!authenticated) {
-  //           this.router.navigate(['auth/login']);
-  //         }
-  //       }),
-  //     );
-  // }
+ }
 
 }

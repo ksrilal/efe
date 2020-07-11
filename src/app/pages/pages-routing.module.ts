@@ -12,6 +12,10 @@ const routes: Routes = [{
   component: PagesComponent,
   children: [
     {
+      path: "iot-dashboard",
+      component: DashboardComponent
+    },
+    {
       path: 'student',
       loadChildren: () => import('./student/student.module')
         .then(m => m.StudentModule),
