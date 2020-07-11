@@ -94,15 +94,6 @@ export class LoginService {
       this.angularFireAuth.signOut();
       localStorage.clear();
     }
-    // getEmail() {
-    //   return this.angularFireAuth.auth.currentUser.email;
-    // }
   
-    static isAdmin() {
-      // console.log(LoginService.tempMail);
-      // console.log(LoginService.tempMail == "dulajdanu@gmail.com");
-      // return LoginService.tempMail == "dulajdanu@gmail.com";
-      // console.log(LoginService.tempMail);
-    }
 
 }
