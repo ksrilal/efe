@@ -29,10 +29,12 @@ import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthguardService } from "./authguard.service";
 import { LoginService } from "./login/login.service";
+import { ApplyregComponent } from './applyreg/applyreg.component';
+import { ApplyregService } from "./applyreg/applyreg.service";
 
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent],
+  declarations: [AppComponent, LoginComponent, ApplyregComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -57,7 +59,7 @@ import { LoginService } from "./login/login.service";
     AngularFireModule.initializeApp(environment.firebase),
 
   ],
-  providers: [AuthguardService, LoginService],
+  providers: [AuthguardService, LoginService, ApplyregService],
   bootstrap: [AppComponent],
 })
 export class AppModule {
