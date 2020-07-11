@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {  Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { LoginService } from "./login.service";
 
@@ -10,7 +11,7 @@ import { LoginService } from "./login.service";
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private LoginService: LoginService) { }
+  constructor(private LoginService: LoginService, private router: Router) { }
 
   ngOnInit() {}
   form = new FormGroup({
@@ -29,6 +30,10 @@ export class LoginComponent implements OnInit {
     console.log(password);
     console.log("hello2");
     this.LoginService.SignIn(e_mail, password);
+  }
+
+  applyToReg() {
+    this.router.navigate(["/applyreg"]);
   }
 
 }

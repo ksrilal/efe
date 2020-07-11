@@ -9,6 +9,7 @@ import {
   NbResetPasswordComponent,
 } from '@nebular/auth';
 import { LoginComponent } from "./login/login.component";
+import { ApplyregComponent } from "./applyreg/applyreg.component";
 import { AuthguardService } from "./authguard.service";
 
 export const routes: Routes = [
@@ -21,6 +22,10 @@ export const routes: Routes = [
   {
     path: "login",
     component: LoginComponent
+  },
+  {
+    path: "applyreg",
+    component: ApplyregComponent
   },
   {
     path: "",

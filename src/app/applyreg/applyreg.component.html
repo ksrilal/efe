@@ -1,0 +1,89 @@
+
+<div class="bg-img">
+  
+      <div class="form-container">
+        <div class="form-container-inner">
+          <form
+            [formGroup]="form"
+            class="container formclass"
+            (ngSubmit)="onSubmit()"
+          >
+
+            <a href="#" title="Go to login page"><h6>Back</h6></a>
+            <p>Apply to the registration through this form.</p>
+
+            <div>
+                <input
+                  type="text"
+                  placeholder="Enter full name"
+                  name="fname"
+                  required
+                  formControlName="fname"
+                />
+                <div *ngIf="fname.touched && fname.invalid">
+                  <p style="color: crimson;">Full name is required</p>
+                </div>
+              </div>
+
+              <div>
+                <input
+                  type="text"
+                  placeholder="Enter Email"
+                  name="email"
+                  required
+                  formControlName="email"
+                />
+                <div *ngIf="email.touched && email.invalid">
+                  <p style="color: crimson;">E-mail is required</p>
+                </div>
+              </div>
+
+              <div>
+                <input
+                  type="text"
+                  placeholder="Enter a father's or mother's name"
+                  name="pname"
+                  required
+                  formControlName="pname"
+                />
+                <div *ngIf="pname.touched && pname.invalid">
+                  <p style="color: crimson;">This field is required</p>
+                </div>
+              </div>
+              
+              <div>
+                <input
+                  type="text"
+                  placeholder="Enter phone number"
+                  name="phone"
+                  required
+                  formControlName="phone"
+                />
+                <div *ngIf="phone.touched && phone.invalid">
+                  <p style="color: crimson;">Phone number is required</p>
+                </div>
+              </div>
+
+              <div>
+                <input
+                  type="text"
+                  placeholder="Enter your section. ex: 2020 A/L Maths"
+                  name="section"
+                  required
+                  formControlName="section"
+                />
+                <div *ngIf="section.touched && section.invalid">
+                  <p style="color: crimson;">Section is required</p>
+                </div>
+              </div>
+    
+            <button type="submit" class="btn" [disabled]="!form.valid">
+              Submit
+            </button>
+  
+          </form>
+  
+        </div>
+      </div>
+    </div>
+    
