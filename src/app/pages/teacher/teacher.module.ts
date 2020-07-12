@@ -9,6 +9,7 @@ import { TeacherUploadComponent } from "./teacher-upload/teacher-upload.componen
 import { TeacherComponent } from "./teacher.component";
 import { TeacherProgressComponent } from './teacher-progress/teacher-progress.component';
 import { TeacherProfileComponent } from './teacher-profile/teacher-profile.component';
+import { Ng2SmartTableModule } from 'ng2-smart-table';
 
 @NgModule({
   imports: [
@@ -18,6 +19,7 @@ import { TeacherProfileComponent } from './teacher-profile/teacher-profile.compo
     NbInputModule,
     ThemeModule,
     TeacherRoutingModule,
+    Ng2SmartTableModule,
     
   ],
   declarations: [

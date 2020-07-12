@@ -1,1 +1,11 @@
-<p>teacher-home works! my first commit here!</p>
+<nb-card>
+    <nb-card-header>
+      Teacher Dashboard
+    </nb-card-header>
+  
+    <nb-card-body>
+      <ng2-smart-table [settings]="settings" [source]="data" (deleteConfirm)="onDeleteConfirm($event)">
+      </ng2-smart-table>
+    </nb-card-body>
+  </nb-card>
+  

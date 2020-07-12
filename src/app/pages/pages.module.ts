@@ -9,13 +9,12 @@ import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 import { StudentModule } from "./student/student.module";
 import { TeacherModule } from "./teacher/teacher.module";
 import { AdminModule } from "./admin/admin.module";
+import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { StudentHomeService } from "./student/student-home/student-home.service";
-
 import { AdminCoursService } from "./admin/admin-cours.service";
 import { AdminStudentService } from "./admin/admin-student.service";
 import { AdminTeacherService } from "./admin/admin-teacher.service";
 import { from } from 'rxjs';
-
 import { AuthguardService } from "../authguard.service";
 
 @NgModule({
@@ -28,7 +27,8 @@ import { AuthguardService } from "../authguard.service";
     MiscellaneousModule,
     StudentModule,
     TeacherModule,
-    AdminModule
+    AdminModule,
+    Ng2SmartTableModule
   ],
   declarations: [
     PagesComponent,
