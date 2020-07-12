@@ -10,6 +10,7 @@ import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 import { StudentModule } from "./student/student.module";
 import { TeacherModule } from "./teacher/teacher.module";
 import { AdminModule } from "./admin/admin.module";
+import { Ng2SmartTableModule } from 'ng2-smart-table';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { AdminModule } from "./admin/admin.module";
     MiscellaneousModule,
     StudentModule,
     TeacherModule,
-    AdminModule
+    AdminModule,
+    Ng2SmartTableModule
   ],
   declarations: [
     PagesComponent,
