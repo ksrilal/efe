@@ -1,0 +1,118 @@
+<div class="row">
+    <div class="col-lg-6">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+  
+        <nb-card>
+        <nb-card-header>Add Teacher</nb-card-header>
+        <nb-card-body>
+   
+          <div class="full-name-inputs">
+            <input type="text" nbInput fullWidth placeholder="First Name" formControlName="tname"
+                [placeholder]="
+                  tname.touched && tname.invalid
+                    ? 'First Name Required!'
+                    : 'First Name'
+                "
+                [status]="
+                  tname.touched && tname.invalid ? 'danger' : 'primary'
+                ">
+  
+            <input type="text" nbInput fullWidth placeholder="Last Name" formControlName="tlname"
+            [placeholder]="tlname.touched && tlname.invalid ? 'Last Name Required!' : 'Last Name' "
+            [status]="tlname.touched && tlname.invalid ? 'danger' : 'primary' "
+            >
+          </div>
+  
+          <div class="form-group">
+            <label class="col-sm-3 label">Gender</label>
+            <div class="col-sm-9">
+          <nb-radio-group formControlName="tgender">
+            <nb-radio value="male">Male</nb-radio>
+            <nb-radio value="female">Female</nb-radio>
+            </nb-radio-group>
+          <div *ngIf="tgender.touched && tgender.invalid">
+            <div class="alert alert-danger">
+              This field is Required!
+            </div>
+          </div>
+            </div>
+        </div>
+  
+
+          <div class="full-name-inputs">
+            <input type="email" nbInput fullWidth placeholder="E-mail"
+          formControlName="temail"
+            [placeholder]="temail.touched && temail.invalid ? 'E-mail Required!' : 'E-mail' "
+            [status]="temail.touched && temail.invalid ? 'danger' : 'primary' "
+            >
+            <div *ngIf="temail.touched && temail.errors">
+              <div class="alert alert-danger" *ngIf="temail.errors.email">Email must be a valid email address</div>
+          </div>
+  
+          </div>
+          
+  
+          <div class="full-name-inputs">  
+          <input type="password" nbInput fullWidth placeholder="Password" formControlName="tpassword"
+          [placeholder]="tpassword.touched && tpassword.invalid ? 'Password Required!' : 'Password' "
+          [status]="tpassword.touched && tpassword.invalid ? 'danger' : 'primary' "
+          >
+          <div *ngIf="tpassword.touched && tpassword.errors">
+            <div class="alert alert-danger" *ngIf="tpassword.errors.minlength">Password must be at least 8 characters</div>
+        </div>
+          </div>
+  
+          <div class="full-name-inputs">  
+            <input type="password" nbInput fullWidth placeholder="Re-enter Password" formControlName="tconfirmPassword"
+            [placeholder]="tconfirmPassword.touched && tconfirmPassword.invalid ? 'Re-enter Password Required!' : 'Re-enter Password' "
+            [status]="tconfirmPassword.touched && tconfirmPassword.invalid ? 'danger' : 'primary'"
+            >
+            <div *ngIf="tconfirmPassword.touched && tconfirmPassword.errors">
+              <div class="alert alert-danger" *ngIf="tconfirmPassword.errors.minlength">Password must be at least 8 characters</div>
+              <div class="alert alert-danger" *ngIf="tconfirmPassword.errors.pattern || tconfirmPassword.invalid">Password not match!</div>
+          </div>
+            </div>
+          
+            
+          <div>
+              <input type="number" nbInput fullWidth placeholder="Phone(XXXXXXXXXX)" formControlName="tmobile"
+            [placeholder]="tmobile.touched && tmobile.invalid ? 'Phone Number(XXXXXXXXXX) Required!' : 'Phone(XXXXXXXXXX)' "
+            [status]="tmobile.touched && tmobile.invalid ? 'danger' : 'primary' "
+            >
+            <div *ngIf="tmobile.touched && tmobile.errors">
+              <div class="alert alert-danger" *ngIf="tmobile.errors.minlength">Phone number must be 10 numbers</div>
+              <div class="alert alert-danger" *ngIf="tmobile.errors.maxlength">Phone number must be 10 numbers</div>
+            </div>
+            </div>
+          
+          <textarea rows="5" nbInput fullWidth shape="round"  placeholder="Description" formControlName="tdes"
+          [placeholder]="tdes.touched && tdes.invalid ? 'Description Required!' : 'Description'"
+          [status]="tdes.touched && tdes.invalid ? 'danger' : 'primary' "
+          ></textarea>
+  
+          <div class="form-group">
+            <div class="full-name-inputs">
+            <label>Select Profile picture</label>
+              <input type="file" class="form-control" formControlName="tpic" accept=".png,.jpg">
+              <div class="alert alert-danger" *ngIf="tpic.touched && tpic.invalid"> This field is Required!</div>
+            </div>
+  
+          </div>
+  
+  
+            <button  nbButton status="primary" hero [disabled]="form.invalid">
+              Add Teacher
+            </button>
+  
+        </nb-card-body>
+      </nb-card>
+  
+      </form>
+      
+    </div>
+  
+    <div class="col-lg-6">
+  
+
+    </div>
+  </div>

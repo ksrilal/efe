@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SmartTableData } from '../../../@core/data/smart-table';
 import { LocalDataSource } from 'ng2-smart-table';
+import { StudentHomeService } from "./student-home.service";
 
 
 @Component({
@@ -8,9 +9,19 @@ import { LocalDataSource } from 'ng2-smart-table';
   templateUrl: './student-home.component.html',
   styleUrls: ['./student-home.component.scss']
 })
-export class StudentHomeComponent {
+export class StudentHomeComponent implements OnInit {
 
- // constructor() { }
+  status1: boolean = true;
+  status2: boolean = false;
+
+  status1changes() {
+      this.status1 = true;
+      this.status2 = false;
+  }
+  status2changes() {
+    this.status1 = false;
+    this.status2 = true;
+}
 
   settings = {
     actions: {
@@ -20,52 +31,75 @@ export class StudentHomeComponent {
       custom: [
         {
           name: 'view',
-          title: '<i class="fas fa-book-reader" title="VIEW"></i>'
+          title: '<i class="fas fa-book-reader" title="Add to My Courses"></i>'
         },
       ],
     },
     columns: {
-      id: {
+      cuid: {
         title: 'Course Code',
         type: 'number',
       },
-      firstName: {
+      name: {
         title: 'Course Name',
         type: 'string',
       },
-      lastName: {
-        title: 'Tutor Name',
+      tname: {
+        title: 'Tutor',
         type: 'string',
       },
-      // username: {
-      //   title: 'Username',
+      tid: {
+        title: 'Day',
+        type: 'string',
+      },
+      // time: {
+      //   title: 'Time',
       //   type: 'string',
       // },
-      // email: {
-      //   title: 'E-mail',
-      //   type: 'string',
-      // },
-      // age: {
-      //   title: 'Age',
+      // venue: {
+      //   title: 'Venue',
       //   type: 'number',
       // },
     },
+    attr: {
+      class: 'table table-bordered'
+    },
   };
 
-  source: LocalDataSource = new LocalDataSource();
+  source1;
+  source2;
 
-  constructor(private service: SmartTableData) {
-    const data = this.service.getData();
-    this.source.load(data);
+  constructor(private StudentHomeService: StudentHomeService) {
+    StudentHomeService.getAll().subscribe(result => {
+      this.source1 = result;
+    });
+
+    StudentHomeService.getMy().subscribe(result => {
+      this.source2 = result;
+    });
   }
 
-  onDeleteConfirm(event): void {
-    if (window.confirm('Are you sure you want to delete?')) {
-      event.confirm.resolve();
-    } else {
-      event.confirm.reject();
+  onSaveConfirm(event): void {
+    
+      if (window.confirm("Are you sure you want to add this to my courses?")) {
+        // event.confirm.resolve();
+        console.log(event.data)
+        
+        this.StudentHomeService.add(event.data);
+        //console.log(event.data)
+      } else {
+        event.confirm.reject();
+      }    
     }
-  }
+
+
+  // onDeleteConfirm(event): void {
+  //   if (window.confirm('Are you sure you want to delete?')) {
+  //     event.confirm.resolve();
+  //   } else {
+  //     event.confirm.reject();
+  //   }
+  // }
 
   ngOnInit(): void {
   }

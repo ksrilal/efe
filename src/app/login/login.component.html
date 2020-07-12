@@ -1,0 +1,59 @@
+
+
+<div class="bg-img">
+
+    <div class="form-container">
+      <div class="form-container-inner">
+
+        <form
+          [formGroup]="form"
+          class="container formclass"
+          (ngSubmit)="onSubmit(e_mail.value, password.value)"
+        >
+          <h1>E for E-learning</h1>
+          <div>
+            <label for="e_mail"><b>E-mail</b></label>
+            <input
+              type="text"
+              placeholder="Enter E-mail"
+              name="e_mail"
+              required
+              formControlName="e_mail"
+            />
+            <div *ngIf="e_mail.touched && e_mail.invalid">
+              <p style="color: crimson;">E mail is required</p>
+            </div>
+          </div>
+          <div>
+            <label for="psw"><b>Password</b></label>
+            <input
+              type="password"
+              placeholder="Enter Password"
+              name="password"
+              required
+              formControlName="password"
+            />
+            <div *ngIf="password.touched && password.invalid">
+              <p style="color: crimson;">Password is required</p>
+            </div>
+          </div>
+  
+          <button type="submit" class="btn" [disabled]="!form.valid">
+            Login
+          </button>
+
+        </form>
+
+        <div class="d-flex justify-content-center">
+          <!-- <div class="p-2">
+            <a href="#"> <h6>Contact Us</h6> </a>
+          </div> -->
+          <div class="p-2">
+            <a (click)="applyToReg()"> <h6>Apply to Registeration</h6> </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  

@@ -20,9 +20,21 @@ import {
   NbToastrModule,
   NbWindowModule,
 } from '@nebular/theme';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { environment } from "../environments/environment";
+import { LoginComponent } from './login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AuthguardService } from "./authguard.service";
+import { LoginService } from "./login/login.service";
+import { ApplyregComponent } from './applyreg/applyreg.component';
+import { ApplyregService } from "./applyreg/applyreg.service";
+
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, LoginComponent, ApplyregComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -39,7 +51,15 @@ import {
     }),
     CoreModule.forRoot(),
     ThemeModule.forRoot(),
+    ReactiveFormsModule,
+    AngularFireModule,
+    AngularFireAuthModule,
+    AngularFireStorageModule,
+    AngularFirestoreModule,
+    AngularFireModule.initializeApp(environment.firebase),
+
   ],
+  providers: [AuthguardService, LoginService, ApplyregService],
   bootstrap: [AppComponent],
 })
 export class AppModule {
