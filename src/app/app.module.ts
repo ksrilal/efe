@@ -25,7 +25,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from "../environments/environment";
-
+import  { StudentProfileService } from "./pages/student-profile.service";
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -50,6 +50,7 @@ import { environment } from "../environments/environment";
     AngularFireStorageModule,
     AngularFirestoreModule,
     AngularFireModule.initializeApp(environment.firebase),
+    // StudentProfileService,
 
   ],
   bootstrap: [AppComponent],

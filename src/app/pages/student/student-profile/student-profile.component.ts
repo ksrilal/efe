@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { from } from 'rxjs';
+import {StudentProfileService } from '../../student-profile.service'
 class ImageSnippet {
   constructor(public src: string, public file: File) {}
 }
@@ -29,7 +30,7 @@ export class ImageUploadComponent {
 
   selectedFile: ImageSnippet;
 
-  // constructor(private imageService: ImageService){}
+   constructor(private StudentProfileComponent: StudentProfileComponent){}
 
   processFile(imageInput: any) {
     const file: File = imageInput.files[0];
