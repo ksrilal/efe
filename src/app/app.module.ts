@@ -11,6 +11,7 @@ import { CoreModule } from './@core/core.module';
 import { ThemeModule } from './@theme/theme.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms'
 import {
   NbChatModule,
   NbDatepickerModule,
@@ -26,6 +27,9 @@ import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from "../environments/environment";
 import  { StudentProfileService } from "./pages/student-profile.service";
+// import { UsersService } from './shared/users.service';
+import {  ReactiveFormsModule } from '@angular/forms'; 
+ import { from } from 'rxjs';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -51,9 +55,13 @@ import  { StudentProfileService } from "./pages/student-profile.service";
     AngularFirestoreModule,
     AngularFireModule.initializeApp(environment.firebase),
     // StudentProfileService,
+    FormsModule ,
+    ReactiveFormsModule
+  
 
   ],
   bootstrap: [AppComponent],
+  providers: []
 })
 export class AppModule {
 }

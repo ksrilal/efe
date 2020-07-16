@@ -8,6 +8,8 @@ import { StudentHomeComponent } from './student-home/student-home.component';
 import { StudentCourseComponent } from './student-course/student-course.component';
 import { StudentProgressComponent } from './student-progress/student-progress.component';
 import { StudentProfileComponent } from './Student-profile/student-profile.component';
+import {  FormsModule,ReactiveFormsModule } from '@angular/forms';
+import {UsersService} from '../../shared/users.service'; 
 import {  } from "module";
 
 @NgModule({
@@ -18,8 +20,11 @@ import {  } from "module";
     NbInputModule,
     ThemeModule,
     StudentRoutingModule,
-    Ng2SmartTableModule
+    Ng2SmartTableModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
+  providers: [UsersService],
   declarations: [
     ...routedComponents,
     StudentHomeComponent,

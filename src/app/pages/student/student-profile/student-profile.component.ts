@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { from } from 'rxjs';
 import {StudentProfileService } from '../../student-profile.service'
+import { NgForm } from '@angular/forms';
+import { UsersService } from '../../../shared/users.service';
 class ImageSnippet {
   constructor(public src: string, public file: File) {}
 }
@@ -14,7 +16,7 @@ export class StudentProfileComponent implements OnInit {
   starRate = 2;
   heartRate = 4;
   radioGroupValue = 'This is value 2';
-  constructor() { }
+  constructor(public service:UsersService) { }
 
   ngOnInit(): void {
   }
@@ -24,13 +26,26 @@ export class StudentProfileComponent implements OnInit {
   uid;
   photoURL = '../../assets/images/default-profile.jpg';
 
+  resetForm(form:NgForm){
+    form.resetForm();
+  //  this.service.formData();
+  }
+
+onSubmit(){  
+
 }
+
+}
+// onsubmit(){
+  
+// }
+
 
 export class ImageUploadComponent {
 
   selectedFile: ImageSnippet;
 
-   constructor(private StudentProfileComponent: StudentProfileComponent){}
+   constructor(){}
 
   processFile(imageInput: any) {
     const file: File = imageInput.files[0];
