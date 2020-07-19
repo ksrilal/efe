@@ -9,7 +9,6 @@ import { LocalDataSource } from 'ng2-smart-table';
 })
 export class StudentCourseComponent {
 
-  //constructor() { }
   settings = {
     actions: {
       add: false,

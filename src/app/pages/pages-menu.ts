@@ -14,7 +14,7 @@ export const student: NbMenuItem[] = [
     group: true,
   },
   {
-    title: 'Student Dashboard',
+    title: 'Courses',
     icon: 'home-outline',
     link: '/pages/student/studenthome',
    // home: true,
@@ -160,23 +160,23 @@ export const all: NbMenuItem[] = [
     group: true,
   },
   {
-    title: 'Student Dashboard',
+    title: 'Courses',
     icon: 'home-outline',
     link: '/pages/student/studenthome',
    // home: true,
   },
   {
-    title: 'Student Progress',
+    title: 'My Courses',
     icon: 'pie-chart-outline',
     link: '/pages/student/studentprogress',
   },
   {
-    title: 'Student Payment',
+    title: 'Invoice',
     icon: 'grid-outline',
     link: '/pages/student/studentcourse',
   },
   {
-    title: 'Student Profile Setting',
+    title: 'Profile',
     icon: 'edit-2-outline',
     link: '/pages/student/studentprofile',
   },

@@ -16,7 +16,7 @@ export class StudentHomeComponent implements OnInit {
 
   status1changes() {
       this.status1 = true;
-      this.status2 = false;
+      this.status2 = false; 
   }
   status2changes() {
     this.status1 = false;
