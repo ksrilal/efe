@@ -17,8 +17,13 @@ export class StudentProChatService {
     return 
   }
 
-  send() {
+  send(data) {
     
+    console.log(data);
+    // this.afs
+    //       .collection("authors")
+    //       .doc(data.cuid)
+    //       .set(data);
   }
 
 

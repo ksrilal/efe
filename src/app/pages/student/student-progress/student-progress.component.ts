@@ -3,6 +3,9 @@ import { SmartTableData } from '../../../@core/data/smart-table';
 import { LocalDataSource } from 'ng2-smart-table';
 import { StudentProChatService } from "./student-pro-chat.service";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { LoginService } from "../../../login/login.service";
+import { AngularFireAuth } from '@angular/fire/auth';
+
 
 
 @Component({
@@ -40,12 +43,21 @@ export class StudentProgressComponent implements OnInit {
     },
   };
 
-  source
+  source;
+  fromMail;
+  toMail;
+  fromName;
+  ToName;
+  Time;
+  cuid;
 
-  constructor(private StudentProChatService: StudentProChatService ) {
+  constructor(private StudentProChatService: StudentProChatService, private LoginService: LoginService, ) {
     StudentProChatService.getMy().subscribe(result => {
       this.source = result;
     })
+
+    LoginService.getMail().then( usermail => this.fromMail = usermail.email );
+
   }
 
   ngOnInit(): void {
@@ -57,8 +69,15 @@ export class StudentProgressComponent implements OnInit {
 
   onSubmit() {
 
-       // this.AdminCoursService.add(this.form.value);
-        
+      this.form.value['fromMail'] = this.fromMail;
+      this.form.value['toMail'] = this.toMail;
+      this.form.value['fromName'] = this.fromName;
+      this.form.value['toName'] = this.ToName;
+      this.form.value['time'] = this.Time;
+
+      this.StudentProChatService.send(this.form.value);
+      console.log("hello" + this.fromMail);
+
      this.form.reset();
 
   }
@@ -67,4 +86,6 @@ export class StudentProgressComponent implements OnInit {
     return this.form.get("msg");
 
 }
+
+
 }

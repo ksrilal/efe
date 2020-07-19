@@ -45,17 +45,18 @@
   </div>
 
   <div>
-    <form [formGroup]="form" >
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" >
+
       <input type="text" nbInput fullWidth placeholder="Type message here..." formControlName="msg">
 
       <div class="d-flex flex-row-reverse">
         <div class="p-2">
           <button  nbButton status="primary" hero [disabled]="form.invalid">Send</button>
         </div>
+
       </div>
 
     </form>  
   </div>
-
 </div>
 </nb-card>
