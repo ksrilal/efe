@@ -5,7 +5,7 @@ import { Router } from "@angular/router";
 import { AngularFirestore } from "@angular/fire/firestore";
 import * as firebase from "firebase";
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root' 
 })
 export class LoginService {
   userData: Observable<firebase.User>;
