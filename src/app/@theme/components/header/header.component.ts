@@ -54,7 +54,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
 
   ngOnInit() {
-
+ 
     this.email = localStorage.getItem("mail");
     // console.log("hi")
     // console.log(this.email)

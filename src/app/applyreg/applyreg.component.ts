@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ApplyregService } from "./applyreg.service";
+import {  Router } from '@angular/router';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { ApplyregService } from "./applyreg.service";
 })
 export class ApplyregComponent implements OnInit {
 
-  constructor(private ApplyregService: ApplyregService) { }
+  constructor(private ApplyregService: ApplyregService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -47,6 +48,10 @@ export class ApplyregComponent implements OnInit {
   onSubmit() {
     this.ApplyregService.create(this.form.value);   
     this.form.reset();
+  }
+
+  toPolicy() {
+    this.router.navigate(["/policy"]);
   }
 
 }

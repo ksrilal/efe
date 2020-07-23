@@ -14,12 +14,14 @@ export class StudentProChatService {
   }
 
   getChat() {
-    return 
+     
   }
 
+sender
   send(data) {
-    
-    console.log(data);
+
+    this.afs.collection('user').valueChanges({idField: data.fromMail}).subscribe(res=>{this.sender=res;});
+    console.log('fuck u '+this.sender);
     // this.afs
     //       .collection("authors")
     //       .doc(data.cuid)

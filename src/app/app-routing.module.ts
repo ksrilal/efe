@@ -11,6 +11,8 @@ import {
 import { LoginComponent } from "./login/login.component";
 import { ApplyregComponent } from "./applyreg/applyreg.component";
 import { AuthguardService } from "./authguard.service";
+import { PolicyComponent } from './policy/policy.component';
+
 
 export const routes: Routes = [
   {
@@ -26,6 +28,10 @@ export const routes: Routes = [
   {
     path: "applyreg",
     component: ApplyregComponent
+  },
+  {
+    path: "policy",
+    component: PolicyComponent
   },
   {
     path: "",
