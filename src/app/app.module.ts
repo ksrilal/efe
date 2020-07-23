@@ -31,10 +31,11 @@ import { AuthguardService } from "./authguard.service";
 import { LoginService } from "./login/login.service";
 import { ApplyregComponent } from './applyreg/applyreg.component';
 import { ApplyregService } from "./applyreg/applyreg.service";
+import { PolicyComponent } from './policy/policy.component';
 
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, ApplyregComponent],
+  declarations: [AppComponent, LoginComponent, ApplyregComponent, PolicyComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

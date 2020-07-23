@@ -56,11 +56,12 @@ export class StudentProgressComponent implements OnInit {
       this.source = result;
     })
 
-    LoginService.getMail().then( usermail => this.fromMail = usermail.email );
 
   }
 
   ngOnInit(): void {
+    this.fromMail = localStorage.getItem("mail");
+    console.log("wade hari "+this.fromMail);
   }
 
   form = new FormGroup({
