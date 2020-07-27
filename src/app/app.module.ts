@@ -32,6 +32,10 @@ import { LoginService } from "./login/login.service";
 import { ApplyregComponent } from './applyreg/applyreg.component';
 import { ApplyregService } from "./applyreg/applyreg.service";
 import { PolicyComponent } from './policy/policy.component';
+import { UsersService } from './pages/student/shared/users.service';
+
+
+
 
 
 @NgModule({
@@ -58,9 +62,11 @@ import { PolicyComponent } from './policy/policy.component';
     AngularFireStorageModule,
     AngularFirestoreModule,
     AngularFireModule.initializeApp(environment.firebase),
+    
+    
 
   ],
-  providers: [AuthguardService, LoginService, ApplyregService],
+  providers: [AuthguardService, LoginService, ApplyregService, UsersService],
   bootstrap: [AppComponent],
 })
 export class AppModule {

@@ -19,6 +19,7 @@ import {
   NbUserModule,
 } from '@nebular/theme';
 import { FormsModule as ngFormsModule, ReactiveFormsModule } from '@angular/forms';
+import { StudentListComponent } from './student-list/student-list.component';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { FormsModule as ngFormsModule, ReactiveFormsModule } from '@angular/form
     StudentCourseComponent,
     StudentProgressComponent,
     StudentProfileComponent,
+    StudentListComponent,
   ],
 }) 
 

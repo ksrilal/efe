@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { UsersService } from '../shared/users.service';
+
+
 class ImageSnippet {
   constructor(public src: string, public file: File) {}
 }
@@ -13,21 +16,24 @@ export class StudentProfileComponent implements OnInit {
   starRate = 2;
   heartRate = 4;
   radioGroupValue = 'This is value 2';
-  constructor() { }
+  constructor(public usersService : UsersService) { }
 
   ngOnInit(): void {
   }
 
-  inputFile;
-  filename = '';
-  uid;
-  photoURL = '../../assets/images/default-profile.jpg';
 
-}
 
-export class ImageUploadComponent {
+} 
+  // inputFile;
+  // filename = '';
+  // uid;
+  // photoURL = '../../assets/images/default-profile.jpg';
 
-  selectedFile: ImageSnippet;
+
+
+// export class ImageUploadComponent {
+
+//   selectedFile: ImageSnippet;
 
   // constructor(private imageService: ImageService){}
 
@@ -50,4 +56,4 @@ export class ImageUploadComponent {
 
   //   reader.readAsDataURL(file);
   // }
-}
+// }
