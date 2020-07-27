@@ -52,7 +52,7 @@
         </div>
         <div class="formGroup">
           <label>Home address</label>
-          <input formControlName="homeddress" class="form-control">
+          <input formControlName="homeAddress" class="form-control">
         </div>
         <div class="formGroup">
           <label>Parent Name</label>
@@ -63,7 +63,7 @@
           <input formControlName="parentMobile" class="form-control">
         </div>
         <div class="formGroup">
-          <input type="sublit" class="btn btn-primary" value="Submit">
+          <input type="submit" class="btn btn-primary" value="Submit" (ngSubmit)="onSubmit()">
         </div>
       
       </form>

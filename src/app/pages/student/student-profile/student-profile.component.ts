@@ -21,6 +21,12 @@ export class StudentProfileComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onSubmit(){
+    // if(this.customerService.form.get('$id').value==null)
+    //insert
+    // else
+      //update
+  }
 
 
 } 
