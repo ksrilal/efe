@@ -1,4 +1,4 @@
-<div class="row">
+<!-- <div class="row">
     <div class="col-lg-6">
       <nb-card>
         <nb-card-header>Student Information</nb-card-header>
@@ -8,7 +8,6 @@
               <input #imageInput
                      type="file"
                      accept="image/*"
-                     <!-- //(change)="processFile(imageInput)" -->
                      >
                      <span class="col-auto  px-5 ml-3"><img *ngIf="photoURL" [src]="photoURL" class=" align-self-center"
                       id="displayPhoto"></span>
@@ -28,7 +27,51 @@
   </div>
   <div class="form-group">
     <button  class="btn btn-lg btn-black btn-info">Sumbit</button>
-  </div> 
+  </div>  -->
 
+
+  <div class=row>
+    <div class="col-md-5">
+      <form [formGroup]="this.usersService.form">
+        <input type="hidden" formControlName="$id">
+        <div class="formGroup">
+          <label>First name</label>
+          <input formControlName="firstName" class="form-control">
+        </div>
+        <div class="formGroup">
+          <label>Last name</label>
+          <input formControlName="lastName" class="form-control">
+        </div>
+        <div class="formGroup">
+          <label>Phone number</label>
+          <input formControlName="mobile" class="form-control">
+        </div>
+        <div class="formGroup">
+          <label>Email</label>
+          <input formControlName="email" class="form-control">
+        </div>
+        <div class="formGroup">
+          <label>Home address</label>
+          <input formControlName="homeddress" class="form-control">
+        </div>
+        <div class="formGroup">
+          <label>Parent Name</label>
+          <input formControlName="parentName" class="form-control">
+        </div>
+        <div class="formGroup">
+          <label>Parent phone number</label>
+          <input formControlName="parentMobile" class="form-control">
+        </div>
+        <div class="formGroup">
+          <input type="sublit" class="btn btn-primary" value="Submit">
+        </div>
+      
+      </form>
+
+    </div>
+    <div class="col-md-7">
+      <ngx-student-list></ngx-student-list>
+    </div>
+  </div>
   
 
