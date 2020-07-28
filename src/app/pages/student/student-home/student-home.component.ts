@@ -29,8 +29,8 @@ export class StudentHomeComponent implements OnInit {
       edit: false,
       custom: [
         {
-          name: 'view',
-          title: '<i class="fas fa-book-reader"></i>',
+          name: 'view', 
+          title: '<i class="fas fa-book-reader" title="Add to My Courses"></i>',
         },
       ],
     },
@@ -87,6 +87,10 @@ export class StudentHomeComponent implements OnInit {
       },
       time: {
         title: 'Time',
+        type: 'string',
+      },
+      status: {
+        title: 'Status',
         type: 'string',
       },
     },

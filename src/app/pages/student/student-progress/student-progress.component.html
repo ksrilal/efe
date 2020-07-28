@@ -6,48 +6,51 @@
   </nb-card-header>
 
   <nb-card-body>
-    <ng2-smart-table [settings]="settings" [source]="source">
+    <ng2-smart-table [settings]="settings" [source]="source" (rowSelect)="handleSelected($event)">
     </ng2-smart-table>
   </nb-card-body>
 </nb-card>
 
-<nb-card>
 <!-- chat begins -->
-<div class="content">
-    <h2>Chat Messages</h2>
-  
-  <div class="container">
-    <img src="../../../../assets/images/nick.png" alt="Avatar" style="width:100%;">
-    <h6>Jack</h6>
-    <p>Hello. How are you today?</p>
-    <span class="time-right">11:00</span>
-  </div>
-  
-  <div class="container darker">
-    <img src="../../../../assets/images/jack.png" alt="Avatar" class="right" style="width:100%;">
-    <h6>Jill</h6>
-    <p>Hey! I'm fine. Thanks for asking!</p>
-    <span class="time-left">11:01</span>
-  </div>
-  
-  <div class="container">
-    <img src="../../../../assets/images/nick.png" alt="Avatar" style="width:100%;">
-    <h6>Jack</h6>
-    <p>Sweet! So, what do you wanna do today?</p>
-    <span class="time-right">11:02</span>
-  </div>
-  
-  <div class="container darker">
-    <img src="../../../../assets/images/jack.png" alt="Avatar" class="right" style="width:100%;">
-    <h6>Jill</h6>
-    <p>Nah, I dunno. Play soccer.. or learn more coding perhaps?</p>
-    <span class="time-left">11:05</span>
-  </div>
+<nb-card>
+  <nb-card-header>
+    <nb-card-body>
+      <h3>Chat Messages - {{cname}}</h3>
+    </nb-card-body>
+  </nb-card-header>
 
+<div class="content">
+    <div class="scroll">
+      <div *ngFor="let item of chatData.slice().reverse()">
+        
+        <div *ngIf="item.sender == senderData.name; then thenBlock else elseBlock"></div>
+
+          <ng-template #thenBlock>
+            <div class="container darker">
+              <img src="../../../../assets/images/jack.png" alt="Avatar" class="right" style="width:100%;">
+              <h6>{{item.sender}}</h6>
+              <p>{{item.msg}}</p>
+              <span class="time-left">{{item.time}}</span>
+            </div> 
+          </ng-template>
+
+          <ng-template #elseBlock>
+            <div class="container">
+              <img src="../../../../assets/images/nick.png" alt="Avatar" style="width:100%;">
+              <h6>{{item.sender}}</h6>
+              <p>{{item.msg}}</p>
+              <span class="time-right">{{item.time}}</span>
+            </div>
+          </ng-template>
+
+      </div>
+    </div>
+      
+  
   <div>
     <form [formGroup]="form" (ngSubmit)="onSubmit()" >
 
-      <input type="text" nbInput fullWidth placeholder="Type message here..." formControlName="msg">
+      <input class="input" type="text" nbInput fullWidth placeholder="Type message here..." formControlName="msg">
 
       <div class="d-flex flex-row-reverse">
         <div class="p-2">
