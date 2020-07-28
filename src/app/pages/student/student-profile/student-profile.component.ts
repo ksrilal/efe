@@ -17,43 +17,24 @@ export class StudentProfileComponent implements OnInit {
   heartRate = 4;
   radioGroupValue = 'This is value 2';
   constructor(public usersService : UsersService) { }
+  submitted : boolean;
+  formControls = this.usersService.form.controls;
 
   ngOnInit(): void {
   }
 
+  onSubmit(){
+    console.log('sxscscscsc');
+
+    // else
+      //update
+      this.submitted = true;
+      if ( this.usersService.form.valid){
+      // if(this.userService.form.get('$id').value==null)
+      //insert
+      this.submitted = false;  
+      }
+  }
 
 
 } 
-  // inputFile;
-  // filename = '';
-  // uid;
-  // photoURL = '../../assets/images/default-profile.jpg';
-
-
-
-// export class ImageUploadComponent {
-
-//   selectedFile: ImageSnippet;
-
-  // constructor(private imageService: ImageService){}
-
-  // processFile(imageInput: any) {
-  //   const file: File = imageInput.files[0];
-  //   const reader = new FileReader();
-
-  //   reader.addEventListener('load', (event: any) => {
-
-  //     this.selectedFile = new ImageSnippet(event.target.result, file);
-
-  //     // this.imageService.uploadImage(this.selectedFile.file).subscribe(
-  //     //   (res) => {
-        
-  //     //   },
-  //     //   (err) => {
-        
-  //     //   })
-  //   });
-
-  //   reader.readAsDataURL(file);
-  // }
-// }

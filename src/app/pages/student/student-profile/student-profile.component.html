@@ -32,38 +32,55 @@
 
   <div class=row>
     <div class="col-md-5">
-      <form [formGroup]="this.usersService.form">
+      <form [formGroup]="this.usersService.form"  (ngSubmit)="onSubmit()">
         <input type="hidden" formControlName="$id">
-        <div class="formGroup">
+        <div class="form-group">
           <label>First name</label>
-          <input formControlName="firstName" class="form-control">
+          <input formControlName="firstName" class="form-control" [ngClass]="{'is-invalid' : submitted && formControls.firstName.errors}">
+          <div class="invalid-feedback" *ngIf="submitted && formControls.firstName.errors">
+            This field is required</div>
         </div>
         <div class="formGroup">
           <label>Last name</label>
-          <input formControlName="lastName" class="form-control">
+          <input formControlName="lastName" class="form-control" [ngClass]="{'is-invalid' : submitted && formControls.lastName.errors}">
+          <div class="invalid-feedback" *ngIf="submitted && formControls.lastName.errors">
+            This field is required</div>
         </div>
         <div class="formGroup">
           <label>Phone number</label>
-          <input formControlName="mobile" class="form-control">
+          <input formControlName="mobile" class="form-control" [ngClass]="{'is-invalid' : submitted && formControls.mobile.errors}">
+          <div class="invalid-feedback" *ngIf="submitted && formControls.mobile.errors">
+            <label *ngIf="formControls.mobile.errors.minlength">Atleast 10 numbers.</label>
+            </div>
         </div>
         <div class="formGroup">
           <label>Email</label>
-          <input formControlName="email" class="form-control">
+          <input formControlName="email" class="form-control" [ngClass]="{'is-invalid' : submitted && formControls.email.errors}">
+          <div class="invalid-feedback" *ngIf="submitted && formControls.email.errors">
+            Invalid Email address</div>
         </div>
         <div class="formGroup">
           <label>Home address</label>
-          <input formControlName="homeddress" class="form-control">
+          <input formControlName="homeAddress" class="form-control" [ngClass]="{'is-invalid' : submitted && formControls.homeAddress.errors}">
+          <div class="invalid-feedback" *ngIf="submitted && formControls.homeAddress.errors">
+            This field is required</div>
         </div>
         <div class="formGroup">
           <label>Parent Name</label>
-          <input formControlName="parentName" class="form-control">
+          <input formControlName="parentName" class="form-control" [ngClass]="{'is-invalid' : submitted && formControls.parentName.errors}">
+          <div class="invalid-feedback" *ngIf="submitted && formControls.parentName.errors">
+            This field is required</div>
         </div>
         <div class="formGroup">
           <label>Parent phone number</label>
-          <input formControlName="parentMobile" class="form-control">
+          <input formControlName="parentMobile" class="form-control" [ngClass]="{'is-invalid' : submitted && formControls.parentMobile.errors}">
+          <div class="invalid-feedback" *ngIf="submitted && formControls.parentMobile.errors">
+            <label *ngIf="formControls.parentMobile.errors.required">This field is required</label>
+            <label *ngIf="formControls.parentMobile.errors.minlength">Atleast 10 numbers.</label>
+            </div>
         </div>
-        <div class="formGroup">
-          <input type="sublit" class="btn btn-primary" value="Submit">
+        <div class="form-group">
+          <input type="submit" class="btn btn-primary" value="Submit" >
         </div>
       
       </form>
