@@ -13,11 +13,15 @@ export class StudentHomeService {
     return this.afs.collection('courses').valueChanges({idField:"id"});
   }
 
-  getMy() {
-    return this.afs.collection('mycourses').valueChanges({idField:"id"});
+  getMy(user) {
+    return this.afs.collection('stucourses').doc(user).collection('mycourse').valueChanges({idField:"id"});
   }
 
-  add(newData){
-    this.afs.collection('mycourses').add(newData);
+//to get logged user mail
+  
+  add(newData, user){
+    //console.log(newData.cuid);
+    this.afs.collection('stucourses').doc(user).collection('mycourse').add(newData);
   }
+
 }

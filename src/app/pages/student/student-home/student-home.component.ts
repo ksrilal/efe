@@ -52,14 +52,10 @@ export class StudentHomeComponent implements OnInit {
         title: 'Day',
         type: 'string',
       },
-      // time: {
-      //   title: 'Time',
-      //   type: 'string',
-      // },
-      // venue: {
-      //   title: 'Venue',
-      //   type: 'number',
-      // },
+      time: {
+        title: 'Time',
+        type: 'string',
+      },
     },
     attr: {
       class: 'table table-bordered'
@@ -68,40 +64,52 @@ export class StudentHomeComponent implements OnInit {
 
   source1;
   source2;
+  user;
+    ngOnInit(): void {
+      this.user = localStorage.getItem("mail");
+    }
 
   constructor(private StudentHomeService: StudentHomeService) {
     StudentHomeService.getAll().subscribe(result => {
       this.source1 = result;
     });
 
-    StudentHomeService.getMy().subscribe(result => {
+    this.user = localStorage.getItem("mail");
+    console.log("userrrrrrr " + this.user);
+
+    StudentHomeService.getMy(this.user).subscribe(result => {
       this.source2 = result;
     });
+
   }
 
+  // add data to my courses.....
   onSaveConfirm(event): void {
     
       if (window.confirm("Are you sure you want to add this to my courses?")) {
         // event.confirm.resolve();
-        console.log(event.data)
+        // console.log('zzzzzzzzzzzzzzzzzz');
+        // console.log(event.data.cuid);
+        //console.log(this.source2);
+
+        let flag = true;
+        for (var i = 0; i < this.source2.length; i++) {
+          if (this.source2[i].cuid == event.data.cuid){
+            alert("Already Added!");
+            flag = false;
+            break;
+          }
+        }
+        // console.log("adoooooooooooooooooo");
+        // console.log(flag);
         
-        this.StudentHomeService.add(event.data);
-        //console.log(event.data)
+        if(flag) {
+          this.StudentHomeService.add(event.data, this.user);
+        }
+
       } else {
         event.confirm.reject();
       }    
     }
-
-
-  // onDeleteConfirm(event): void {
-  //   if (window.confirm('Are you sure you want to delete?')) {
-  //     event.confirm.resolve();
-  //   } else {
-  //     event.confirm.reject();
-  //   }
-  // }
-
-  ngOnInit(): void {
-  }
 
 }
