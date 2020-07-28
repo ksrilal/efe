@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { SmartTableData } from '../../../@core/data/smart-table';
-import { LocalDataSource } from 'ng2-smart-table';
 import { StudentHomeService } from "./student-home.service";
 
 
@@ -23,7 +21,8 @@ export class StudentHomeComponent implements OnInit {
     this.status2 = true;
 }
 
-  settings = {
+//all courses table
+  settings1 = {
     actions: {
       add: false,
       delete: false,
@@ -31,7 +30,7 @@ export class StudentHomeComponent implements OnInit {
       custom: [
         {
           name: 'view',
-          title: '<i class="fas fa-book-reader" title="Add to My Courses"></i>'
+          title: '<i class="fas fa-book-reader"></i>',
         },
       ],
     },
@@ -61,6 +60,41 @@ export class StudentHomeComponent implements OnInit {
       class: 'table table-bordered'
     },
   };
+  
+  //my courses table
+  settings2 = {
+    actions: {
+      add: false,
+      delete: false,
+      edit: false,
+    },
+    columns: {
+      cuid: {
+        title: 'Course Code',
+        type: 'number',
+      },
+      name: {
+        title: 'Course Name',
+        type: 'string',
+      },
+      tname: {
+        title: 'Tutor',
+        type: 'string',
+      },
+      tid: {
+        title: 'Day',
+        type: 'string',
+      },
+      time: {
+        title: 'Time',
+        type: 'string',
+      },
+    },
+    attr: {
+      class: 'table table-bordered'
+    },
+  };
+
 
   source1;
   source2;
@@ -102,7 +136,7 @@ export class StudentHomeComponent implements OnInit {
         }
         // console.log("adoooooooooooooooooo");
         // console.log(flag);
-        
+
         if(flag) {
           this.StudentHomeService.add(event.data, this.user);
         }
