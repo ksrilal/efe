@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { SmartTableData } from '../../../@core/data/smart-table';
-import { LocalDataSource } from 'ng2-smart-table';
 import { StudentProChatService } from "./student-pro-chat.service";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { LoginService } from "../../../login/login.service";
+import * as moment from 'moment';
 import { AngularFireAuth } from '@angular/fire/auth';
 
 
@@ -20,12 +19,6 @@ export class StudentProgressComponent implements OnInit {
       add: false,
       delete: false,
       edit: false,
-      custom: [
-        {
-          name: 'view',
-          title: '<i class="fas fa-comment" title="Chat!"></i>'
-        },
-      ],
     },
     columns: {
       cuid: {
@@ -40,44 +33,77 @@ export class StudentProgressComponent implements OnInit {
         title: 'Tutor',
         type: 'string',
       },
+      tid: {
+        title: 'Day',
+        type: 'string',
+      },
+      time: {
+        title: 'Time',
+        type: 'string',
+      },
+      status: {
+        title: 'Status',
+        type: 'string',
+      },
     },
   };
 
   source;
-  fromMail;
-  toMail;
-  fromName;
-  ToName;
-  Time;
+  senderData;
+  senderMail;
   cuid;
+  cname;
+  chatData;
+  chat;
+  time
 
   constructor(private StudentProChatService: StudentProChatService, private LoginService: LoginService, ) {
-    StudentProChatService.getMy().subscribe(result => {
-      this.source = result;
-    })
+    
+    this.senderMail = localStorage.getItem("mail");
+    //console.log("userrrrrrr " + this.user);
 
+    StudentProChatService.getMy(this.senderMail).subscribe(result => {
+      this.source = result;
+    });
+
+    StudentProChatService.getUser(this.senderMail).subscribe(result => {
+      this.senderData = result;
+    });
 
   }
 
   ngOnInit(): void {
-    this.fromMail = localStorage.getItem("mail");
-    console.log("wade hari "+this.fromMail);
   }
 
   form = new FormGroup({
     msg: new FormControl("", Validators.required),
   });
 
+  handleSelected(data) {
+    this.cuid = data.data.cuid;
+    this.cname = data.data.name;
+    this.StudentProChatService.getChat(this.cuid).subscribe(result => {
+      this.chatData = result;
+    });
+    //this.chat = this.chatData[0]; 
+    //console.log("hellooooooooo");
+    //console.log(this.chatData);
+  }
+
   onSubmit() {
 
-      this.form.value['fromMail'] = this.fromMail;
-      this.form.value['toMail'] = this.toMail;
-      this.form.value['fromName'] = this.fromName;
-      this.form.value['toName'] = this.ToName;
-      this.form.value['time'] = this.Time;
+      this.time = Date.now();
+      this.form.value['senderMail'] = this.senderMail;
+      this.form.value['sender'] = this.senderData.name;
+      this.form.value['time'] = this.time;
 
-      this.StudentProChatService.send(this.form.value);
-      console.log("hello" + this.fromMail);
+      //ටයිම් එක හදලා නෑ යකෝ ඒක හදපන් සෙද්ද....
+
+      this.StudentProChatService.send(this.form.value, this.cuid);
+      // console.log("sdddddddddddkjgvshv");
+      // console.log(this.time);
+      // console.log("hellooooooooo");
+      // console.log(this.cuid);
 
      this.form.reset();
 

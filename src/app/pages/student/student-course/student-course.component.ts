@@ -22,30 +22,30 @@ export class StudentCourseComponent {
       ],
     },
     columns: {
-      id: {
+      cuid: {
         title: 'Course Code',
         type: 'number',
       },
-      firstName: {
+      name: {
         title: 'Course Name',
         type: 'string',
       },
-      lastName: {
+      tname: {
         title: 'Tutor',
         type: 'string',
       },
-      username: {
-        title: 'Staus',
+      tid: {
+        title: 'Day',
         type: 'string',
       },
-      // email: {
-      //   title: 'E-mail',
-      //   type: 'string',
-      // },
-      // age: {
-      //   title: 'Age',
-      //   type: 'number',
-      // },
+      time: {
+        title: 'Time',
+        type: 'string',
+      },
+      status: {
+        title: 'Status',
+        type: 'string',
+      },
     },
   };
 

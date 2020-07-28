@@ -77,6 +77,20 @@
     width: 90%;
   }
 
+  .scroll {
+    padding: 10px;
+    margin: 10px auto 0 auto;
+    height: auto;
+    max-height: 500px;
+    overflow: auto;
+    display:flex;
+    flex-direction:column-reverse;
+  }
+
+  .input {
+    padding: 10px;
+  }
+
   :host /deep/ ng2-st-tbody-edit-delete {display: flex !important;
     height: 0 !important;
   }
@@ -94,5 +108,6 @@
 
 :host /deep/ ng2-smart-table { font-size: smaller; }
   
-
+::ng-deep tbody  tr.ng2-smart-row.selected
+{ background:rgb(4, 94, 124) !important; border:1px solid blue;}
   

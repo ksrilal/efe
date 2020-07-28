@@ -9,23 +9,28 @@ export class StudentProChatService {
 
   constructor(private afs: AngularFirestore) { }
 
-  getMy() {
-    return this.afs.collection('mycourses').valueChanges({idField:"id"});
+  getMy(user) {
+    return this.afs.collection('stucourses').doc(user).collection('mycourse').valueChanges({idField:"id"});
   }
 
-  getChat() {
-     
+  getUser(user) {
+    return this.afs.collection('user').doc(user).valueChanges();
+  }
+ 
+  getChat(cuid) {
+    console.log(cuid);
+    return this.afs.collection('chat').doc(cuid).collection('msg', ref => ref.orderBy('time')).valueChanges();
   }
 
-sender
-  send(data) {
 
-    this.afs.collection('user').valueChanges({idField: data.fromMail}).subscribe(res=>{this.sender=res;});
-    console.log('fuck u '+this.sender);
-    // this.afs
-    //       .collection("authors")
-    //       .doc(data.cuid)
-    //       .set(data);
+  send(data, cuid) {
+
+    this.afs.collection('chat').doc(cuid).collection('msg').add(data);
+    // console.log('fuck u ');
+    // console.log(data);
+    // console.log("csvsjkjcdbvhbdvbshdvbhdvsh");
+    // console.log(cuid);
+
   }
 
 
