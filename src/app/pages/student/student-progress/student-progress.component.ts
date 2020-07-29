@@ -93,11 +93,13 @@ export class StudentProgressComponent implements OnInit {
   onSubmit() {
 
       this.time = Date.now();
+      let t = moment(this.time).format('h:mm a, MMMM Do YYYY');
       this.form.value['senderMail'] = this.senderMail;
       this.form.value['sender'] = this.senderData.name;
       this.form.value['time'] = this.time;
+      this.form.value['timestring'] = t;
 
-      //ටයිම් එක හදලා නෑ යකෝ ඒක හදපන් සෙද්ද....
+
 
       this.StudentProChatService.send(this.form.value, this.cuid);
       // console.log("sdddddddddddkjgvshv");
