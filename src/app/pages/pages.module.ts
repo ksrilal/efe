@@ -17,6 +17,7 @@ import { AdminTeacherService } from "./admin/admin-teacher.service";
 import { from } from 'rxjs';
 import { AuthguardService } from "../authguard.service";
 import { StudentProChatService } from "./student/student-progress/student-pro-chat.service";
+import { TeacherProChatService } from "./teacher/teacher-progress/teacher-pro-chat.service";
 
 @NgModule({
   imports: [
@@ -41,6 +42,7 @@ import { StudentProChatService } from "./student/student-progress/student-pro-ch
     AdminStudentService,
     AdminTeacherService,
     StudentProChatService,
+    TeacherProChatService,
   ]
 
 
