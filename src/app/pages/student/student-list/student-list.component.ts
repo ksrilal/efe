@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UsersService } from '../shared/users.service'; 
+
 
 @Component({
   selector: 'ngx-student-list',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StudentListComponent implements OnInit {
 
-  constructor() { }
+  constructor(public usersService : UsersService) { }
 
   ngOnInit(): void {
+    this.usersService.getStudents();
   }
 
 }

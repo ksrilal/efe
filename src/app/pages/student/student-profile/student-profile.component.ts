@@ -18,23 +18,19 @@ export class StudentProfileComponent implements OnInit {
   radioGroupValue = 'This is value 2';
   constructor(public usersService : UsersService) { }
   submitted : boolean;
+
   formControls = this.usersService.form.controls;
 
   ngOnInit(): void {
   }
 
   onSubmit(){
-    console.log('sxscscscsc');
-
-    // else
-      //update
       this.submitted = true;
       if ( this.usersService.form.valid){
-      // if(this.userService.form.get('$id').value==null)
-      //insert
+        if(this.usersService.form.get('$id').value==null)
+          this.usersService.insertStudents(this.usersService.form.value);
+
       this.submitted = false;  
       }
   }
-
-
 } 
