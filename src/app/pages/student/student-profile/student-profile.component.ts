@@ -18,7 +18,7 @@ export class StudentProfileComponent implements OnInit {
   radioGroupValue = 'This is value 2';
   constructor(public usersService : UsersService) { }
   submitted : boolean;
-
+  showSuccessMessage : boolean ;
   formControls = this.usersService.form.controls;
 
   ngOnInit(): void {
@@ -29,7 +29,8 @@ export class StudentProfileComponent implements OnInit {
       if ( this.usersService.form.valid){
         if(this.usersService.form.get('$id').value==null)
           this.usersService.insertStudents(this.usersService.form.value);
-
+          this.showSuccessMessage = true;
+          setTimeout(() => this.showSuccessMessage = false , 3000);
       this.submitted = false;  
       }
   }
