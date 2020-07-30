@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AdminTeacherService } from '../admin-teacher.service'
 import { from } from 'rxjs';
+import * as firebase from 'firebase/app';
+import { AngularFireStorage } from '@angular/fire/storage';
 
 @Component({
   selector: 'ngx-admin-add-teacher',
@@ -10,64 +12,85 @@ import { from } from 'rxjs';
 })
 export class AdminAddTeacherComponent implements OnInit {
 
-  constructor(private AdminTeacherService: AdminTeacherService) { }
+  constructor(private AdminTeacherService: AdminTeacherService, private afStorage: AngularFireStorage) { }
 
   ngOnInit(): void {
   }
 
+  downloadURL;
+  randomId;
+
+  upload(event) {
+    this.randomId = Math.random()
+      .toString(36)
+      .substring(2);
+
+    this.afStorage.upload("/teacher/" + this.randomId, event.target.files[0]);
+  }
+
   form = new FormGroup({
-    tname: new FormControl("", Validators.required),
-    tlname: new FormControl("", Validators.required),
-    tdes: new FormControl("", Validators.required),
-    tpic: new FormControl("", Validators.required),
-    temail: new FormControl("", [Validators.required, Validators.email]),
-    tpassword: new FormControl("", [
+    name: new FormControl("", Validators.required),
+    des: new FormControl("", Validators.required),
+    pic: new FormControl("", Validators.required),
+    email: new FormControl("", [Validators.required, Validators.email]),
+    password: new FormControl("", [
       Validators.required,
       Validators.minLength(8),
     ]),
-    tmobile: new FormControl("", [
+    mobile: new FormControl("", [
       Validators.required,
       Validators.minLength(10),
       Validators.maxLength(10)
     ]),
-    tconfirmPassword: new FormControl("", [
+    confirmPassword: new FormControl("", [
       Validators.required, Validators.minLength(8),
     ]),
-    tgender: new FormControl("", Validators.required),
+    gender: new FormControl("", Validators.required),
   });
 
   onSubmit() {
 
-    this.AdminTeacherService.add(this.form.value);
-    this.form.reset();
+    this.downloadURL = this.afStorage
+      .ref("/teacher/" + this.randomId)
+      .getDownloadURL()
+      .subscribe(a => {
+        this.downloadURL = a;
+
+        // console.log("ane mndaaaaaaaaaaaaaaaaaaaa----->>>")
+        // console.log(this.downloadURL);
+        // console.log(this.form.value);
+
+      this.form.value.pic = this.downloadURL;
+      this.form.value['role'] = "teacher";
+      this.AdminTeacherService.add(this.form.value);
+      
+      this.form.reset();
+    });
   }
 
-  get temail() {
-    return this.form.get("temail");
+  get email() {
+    return this.form.get("email");
   }
-  get tname() {
-    return this.form.get("tname");
+  get name() {
+    return this.form.get("name");
   }
-  get tlname() {
-    return this.form.get("tlname");
+  get password() {
+    return this.form.get("password");
   }
-  get tpassword() {
-    return this.form.get("tpassword");
+  get mobile() {
+    return this.form.get("mobile");
   }
-  get tmobile() {
-    return this.form.get("tmobile");
+  get des() {
+    return this.form.get("des");
   }
-  get tdes() {
-    return this.form.get("tdes");
+  get pic() {
+    return this.form.get("pic");
   }
-  get tpic() {
-    return this.form.get("tpic");
+  get confirmPassword() {
+    return this.form.get("confirmPassword");
   }
-  get tconfirmPassword() {
-    return this.form.get("tconfirmPassword");
-  }
-  get tgender() {
-    return this.form.get("tgender");
+  get gender() {
+    return this.form.get("gender");
   }
 }
 
