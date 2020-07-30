@@ -17,13 +17,15 @@ export class AdminAddCourseComponent implements OnInit {
     name: new FormControl("", Validators.required),
     cuid: new FormControl("", Validators.required),
     tname: new FormControl("",Validators.required),
-    tid: new FormControl("",Validators.required),
-
+    temail: new FormControl("",Validators.required),
+    date: new FormControl("",Validators.required),
+    time: new FormControl("",Validators.required),
   });
 
   onSubmit() {
 
-        this.AdminCoursService.add(this.form.value);
+      this.form.value['status'] = "not paid";
+      this.AdminCoursService.add(this.form.value);
         
      this.form.reset();
 
@@ -38,8 +40,14 @@ export class AdminAddCourseComponent implements OnInit {
   get tname() {
     return this.form.get("tname");
   }
-  get tid() {
-    return this.form.get("tid");
+  get temail() {
+    return this.form.get("temail");
+  }
+  get date() {
+    return this.form.get("date");
+  }
+  get time() {
+    return this.form.get("time");
   }
 }
 
