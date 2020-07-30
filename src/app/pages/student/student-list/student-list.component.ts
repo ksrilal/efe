@@ -8,11 +8,33 @@ import { UsersService } from '../shared/users.service';
   styleUrls: ['./student-list.component.scss']
 })
 export class StudentListComponent implements OnInit {
-
+  studentsArray=[];
+  showDeletedMessage:boolean;
+  searchText: string="";
   constructor(public usersService : UsersService) { }
 
-  ngOnInit(): void {
-    this.usersService.getStudents();
-  }
+ 
+ngOnInit() {
+  this.usersService.getStudents().subscribe(
+    list => {
+      this.studentsArray = list.map(item => {
+        return {
+          $id: item.payload.doc.id,
+          ...item.payload.doc.data()
+        };
+      });
+    });    
+}
 
+// onDelete($id){
+//   if(confirm("Are you sure to delete this record ?")){
+//     this.usersService.deleteStudents($id);
+//     this.showDeletedMessage=true;
+//     setTimeout(() => this.showDeletedMessage=false,3000);
+//   }
+// }
+
+filterCondition(students){
+  return students.firstName.toLowerCase().indexOf(this.searchText.toLowerCase()) !=-1;
+}
 }

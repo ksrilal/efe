@@ -41,4 +41,26 @@ export class UsersService {
         
       });
     }
-}
+
+    populateForm(students){
+      this.form.setValue(students);
+    }
+  
+    // updateStudents(students){
+    //   this.studentCollection.update(students.$id,
+    //     {
+    //       firstName:students.firstName,
+    //       // email:customer.email,
+    //       // mobile:customer.mobile,
+    //       // location:customer.location
+    //     }
+    //     );
+    // }
+  
+    // deleteStudents($id: string){
+    //   this.studentCollection.remove($id);
+    // }
+  
+  }
+  
+

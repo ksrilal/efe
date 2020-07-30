@@ -32,6 +32,7 @@ export class StudentProfileComponent implements OnInit {
           this.showSuccessMessage = true;
           setTimeout(() => this.showSuccessMessage = false , 3000);
       this.submitted = false;  
+      this.usersService.form.reset();
       }
   }
 } 
