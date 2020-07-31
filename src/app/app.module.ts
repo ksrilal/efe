@@ -35,9 +35,6 @@ import { PolicyComponent } from './policy/policy.component';
 import { UsersService } from './pages/student/shared/users.service';
 
 
-
-
-
 @NgModule({
   declarations: [AppComponent, LoginComponent, ApplyregComponent, PolicyComponent],
   imports: [

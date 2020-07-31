@@ -1,1 +1,18 @@
-<p>student-list works!</p>
+<ng-container *ngFor="let students of studentsArray">
+    <tr class="table-dark" *ngIf="filterCondition(students)">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="card">
+  <img src="/assets/images/pri.jpg" alt="image" style="width:40%">
+  <h1>{{students.firstName}}</h1>
+  <h2 class="title">{{students.email}}</h2>
+  <h3>{{students.mobile}}</h3>
+  <h4>{{students.homeAddress}}</h4>
+  <h5>{{students.parentName}}</h5>
+  <h6>{{students.parentMobile}}</h6>
+</div>
+        <button class="btn btn-outline-info" (click)="usersService.populateForm(students)" >Edit</button>
+        <button class="btn btn-outline-info" (click)="onDelete(students.$id)">Delete</button>
+    </tr>
+    
+    
+</ng-container>
