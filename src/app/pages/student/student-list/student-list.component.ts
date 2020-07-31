@@ -34,6 +34,7 @@ ngOnInit() {
 //   }
 // }
 
+
 filterCondition(students){
   return students.firstName.toLowerCase().indexOf(this.searchText.toLowerCase()) !=-1;
 }

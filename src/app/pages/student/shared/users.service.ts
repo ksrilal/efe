@@ -8,6 +8,7 @@ import { AngularFirestore , AngularFirestoreCollection , AngularFirestoreDocumen
 })
 export class UsersService {
     studentCollection : AngularFirestoreCollection<any>;
+  firestore: any;
   constructor( private afs : AngularFirestore ) { }
 
 
@@ -46,21 +47,24 @@ export class UsersService {
       this.form.setValue(students);
     }
   
-    // updateStudents(students){
-    //   this.studentCollection.update(students.$id,
-    //     {
-    //       firstName:students.firstName,
-    //       // email:customer.email,
-    //       // mobile:customer.mobile,
-    //       // location:customer.location
-    //     }
-    //     );
-    // }
+    
+    updateStudents(students){
+      this.studentCollection.doc(students.$id).set(
+        {
+        firstName:students.firstName,
+        lastName:students.lastName,
+          mobile:students.mobile,
+          email:students.email,
+          homeAddress:students.homeAddress,
+          parentName:students.parentName,
+          parentMobile:students.parentMobile
+      })
+    }
+    
+    }
   
-    // deleteStudents($id: string){
+    // deleteStudents($id:string){
     //   this.studentCollection.remove($id);
     // }
-  
-  }
   
 

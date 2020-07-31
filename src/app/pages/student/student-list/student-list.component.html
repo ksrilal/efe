@@ -2,7 +2,7 @@
     <tr class="table-dark" *ngIf="filterCondition(students)">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="card">
-  <img src="/src/assets/images/pri.jpg" alt="image" style="width:100%">
+  <img src="/assets/images/pri.jpg" alt="image" style="width:40%">
   <h1>{{students.firstName}}</h1>
   <h2 class="title">{{students.email}}</h2>
   <h3>{{students.mobile}}</h3>
@@ -13,4 +13,6 @@
         <button class="btn btn-outline-info" (click)="usersService.populateForm(students)" >Edit</button>
         <button class="btn btn-outline-info" (click)="onDelete(students.$id)">Delete</button>
     </tr>
+    
+    
 </ng-container>

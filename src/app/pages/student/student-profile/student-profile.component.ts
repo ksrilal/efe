@@ -29,10 +29,12 @@ export class StudentProfileComponent implements OnInit {
       if ( this.usersService.form.valid){
         if(this.usersService.form.get('$id').value==null)
           this.usersService.insertStudents(this.usersService.form.value);
-          this.showSuccessMessage = true;
-          setTimeout(() => this.showSuccessMessage = false , 3000);
-      this.submitted = false;  
-      this.usersService.form.reset();
-      }
+          else
+        this.usersService.updateStudents(this.usersService.form.value); 
+        this.showSuccessMessage = true;
+        setTimeout(() => this.showSuccessMessage = false , 3000);
+        this.submitted = false;  
+        this.usersService.form.reset();
+        }
   }
 } 
