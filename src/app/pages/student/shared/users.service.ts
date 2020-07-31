@@ -7,8 +7,12 @@ import { AngularFirestore , AngularFirestoreCollection , AngularFirestoreDocumen
   providedIn: 'root'
 })
 export class UsersService {
+  deleteStudents($id: any) {
+    throw new Error("Method not implemented.");
+  }
     studentCollection : AngularFirestoreCollection<any>;
   firestore: any;
+  studentDoc: AngularFirestoreDocument<any>;
   constructor( private afs : AngularFirestore ) { }
 
 
@@ -61,10 +65,10 @@ export class UsersService {
       })
     }
     
+    deleteStudent($id: string){
+      this.studentCollection.doc($id).delete();
     }
   
-    // deleteStudents($id:string){
-    //   this.studentCollection.remove($id);
-    // }
+   
   
-
+  }

@@ -26,13 +26,13 @@ ngOnInit() {
     });    
 }
 
-// onDelete($id){
-//   if(confirm("Are you sure to delete this record ?")){
-//     this.usersService.deleteStudents($id);
-//     this.showDeletedMessage=true;
-//     setTimeout(() => this.showDeletedMessage=false,3000);
-//   }
-// }
+onDelete($id){
+  if(confirm("Are you sure to delete this record ?")){
+    this.usersService.deleteStudent($id);
+    this.showDeletedMessage=true;
+    setTimeout(() => this.showDeletedMessage=false,3000);
+  }
+}
 
 
 filterCondition(students){
