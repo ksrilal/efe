@@ -15,7 +15,7 @@ export class StudentProChatService {
 
   getUser(user) {
     return this.afs.collection('user').doc(user).valueChanges();
-  }
+  } 
  
   getChat(cuid) {
     console.log(cuid);
