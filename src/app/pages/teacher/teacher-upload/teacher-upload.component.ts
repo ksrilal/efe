@@ -54,7 +54,7 @@ export class TeacherUploadComponent implements OnInit {
 
   fileUpload = {status: '', message: '', filePath: ''};
 
-  constructor(private fb: FormBuilder, private LoginService: LoginService,private afStorage: AngularFireStorage, private TeacherProChatService: TeacherProChatService, private TeacherUploadService: TeacherUploadService) {
+  constructor(private fb: FormBuilder, private LoginService: LoginService, private afStorage: AngularFireStorage, private TeacherProChatService: TeacherProChatService, private TeacherUploadService: TeacherUploadService) {
 
     this.teacherMail = localStorage.getItem("mail");
     //console.log("userrrrrrr " + this.user);
@@ -140,9 +140,13 @@ export class TeacherUploadComponent implements OnInit {
   getSubData(val) {
     this.TeacherUploadService.getSubData(this.cuid, val).subscribe(result => {
       this.subData = result;
-    });;
+    });
     //console.log(val);
     //console.log("ane mndaaaaaaaaaaaaaaaaaaaa----->>>");
+  }
+
+  upDelete(val) {
+    this.TeacherUploadService.upDelete(this.cuid, val);
   }
 
 }

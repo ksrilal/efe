@@ -28,5 +28,12 @@ export class TeacherUploadService {
     return this.afs.collection('upload').doc(cuid).collection('up').doc(name).collection('stusub').valueChanges();
   }
 
+  upDelete(cuid, name) {
+    if(confirm("Are you sure to delete "+name+" ?")) {
+      this.afs.collection('upload').doc(cuid).collection('up').doc(name).delete();
+      console.log("Implement delete functionality here");
+    }
+  }
+
 }
  

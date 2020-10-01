@@ -14,7 +14,7 @@
 
     <h3>{{cname}}</h3>
     <div class="row">
-      <div class="col-md-4">
+      <div class="col-md-3">
         
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
           <div class="full-name-inputs">
@@ -52,7 +52,7 @@
         </form>
       </div>
 
-      <div class="col-md-4">
+      <div class="col-md-5">
         <div class="scroll">
           <div *ngFor="let item of upData.slice().reverse()">
                   <div class="list-group">
@@ -62,9 +62,16 @@
                         <small style="color: rgb(125, 53, 193);" >{{item.timestring}}</small>
                       </div>
                       <p class="mb-1" style="color: rgb(29, 47, 62);" >{{item.des}}</p>
-                      <a href="{{item.file}}" target="_blank" style="text-decoration:none" ><small style="color: rgb(125, 53, 193);" >Download</small></a>
-                    </a>
-                    <button type="button" #box value="{{item.name}}" class="btn btn-secondary btn-lg btn-block dropdown-toggle" (click)="getSubData(box.value)">Students' Submisions</button>
+                      <div class="d-flex w-100 justify-content-between">
+                        <a href="{{item.file}}" target="_blank" style="text-decoration:none" ><small style="color: rgb(125, 53, 193);" >Download</small></a>
+                        <button type="button" #box value="{{item.name}}" class="btn btn-danger mb-1" style="font-size: x-small; " (click)="upDelete(box.value)">Delete</button> 
+                      </div>
+                      </a>
+                      <div class="btn-group dropright">
+                        <button type="button" #box value="{{item.name}}" class="btn btn-secondary btn-lg btn-block dropdown-toggle" (click)="getSubData(box.value)" style="font-size: small;">
+                          Students' Submisions
+                        </button>
+                      </div>
                   </div>
                   <br>   
           </div>
@@ -80,12 +87,13 @@
                 <a class="list-group-item active">
                   <div class="d-flex w-100 justify-content-between">
                     <h6 class="mb-1">{{item.name}}</h6>
-                    <small style="color: rgb(125, 53, 193);" >{{item.timestring}}</small>
+                    <small style="color: rgb(255, 255, 253);" >{{item.timestring}}</small>
                   </div>
-                  <p class="mb-1" style="color: rgb(29, 47, 62);" >{{item.des}}</p>
-                  <a href="{{item.file}}" target="_blank" style="text-decoration:none" ><small style="color: rgb(255, 255, 255);" >Download</small></a>
+                  <p class="mb-1" style="color: rgb(233, 223, 235);" >{{item.des}}</p>
+                  <a href="{{item.file}}" target="_blank" style="text-decoration:none" ><small style="color: rgb(244, 248, 9);" >Download</small></a>
                 </a>
               </div>
+              <br>
             </div>
             <br>
         </ng-template>

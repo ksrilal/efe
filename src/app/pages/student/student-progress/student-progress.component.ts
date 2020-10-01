@@ -4,8 +4,8 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { LoginService } from "../../../login/login.service";
 import * as moment from 'moment';
 import { AngularFireAuth } from '@angular/fire/auth';
-
-
+import { StudentUploadService } from "./student-upload.service";
+import { AngularFireStorage } from '@angular/fire/storage';
 
 @Component({
   selector: 'ngx-student-progress',
@@ -55,9 +55,10 @@ export class StudentProgressComponent implements OnInit {
   cname;
   chatData;
   chat;
-  time
+  time;
+  upData;
 
-  constructor(private StudentProChatService: StudentProChatService, private LoginService: LoginService, ) {
+  constructor(private StudentProChatService: StudentProChatService, private LoginService: LoginService, private afStorage: AngularFireStorage, private StudentUploadService: StudentUploadService,) {
     
     this.senderMail = localStorage.getItem("mail");
     //console.log("userrrrrrr " + this.user);
@@ -85,6 +86,9 @@ export class StudentProgressComponent implements OnInit {
     this.StudentProChatService.getChat(this.cuid).subscribe(result => {
       this.chatData = result;
     });
+    this.StudentUploadService.getUpload(this.cuid).subscribe(result => {
+      this.upData = result;
+    });
     //this.chat = this.chatData[0]; 
     //console.log("hellooooooooo");
     //console.log(this.chatData);
@@ -111,10 +115,63 @@ export class StudentProgressComponent implements OnInit {
 
   }
 
+  subForm = new FormGroup({
+    file: new FormControl("", Validators.required),
+    des: new FormControl("",),
+    name: new FormControl("", Validators.required),
+  });
+
+  downloadURL;
+  randomId;
+  upName;
+
+  upload(event) {
+    this.randomId = Math.random()
+      .toString(36)
+      .substring(2);
+
+    this.afStorage.upload("/upload/" + this.randomId, event.target.files[0]);
+  }
+
+  getUpName(val) {
+    this.upName = val;
+  }
+
+  submit(){
+
+    this.time = Date.now();
+      let t = moment(this.time).format('h:mm a, MMMM Do YYYY');
+      
+      this.subForm.value['time'] = this.time;
+      this.subForm.value['timestring'] = t;
+      this.subForm.value['uploader'] = "teacher";
+
+      this.downloadURL = this.afStorage
+        .ref("/upload/" + this.randomId)
+        .getDownloadURL()
+        .subscribe(a => {
+          this.downloadURL = a;
+
+          // console.log("ane mndaaaaaaaaaaaaaaaaaaaa----->>>")
+          // console.log(this.downloadURL);
+          // console.log(this.form.value);
+
+          this.subForm.value.file = this.downloadURL;
+          this.StudentUploadService.submit(this.subForm.value, this.cuid, this.upName);
+        
+          this.subForm.reset();
+        });
+  }
+
   get msg() {
     return this.form.get("msg");
-
-}
+  }
+  get des() {
+    return this.subForm.get("des");
+  }
+  get name() {
+    return this.subForm.get("name");
+  }
 
 
 }
