@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root' 
 })
 export class TeacherProChatService {
 
   constructor(private afs: AngularFirestore) { }
 
-  getMy(user) {
+  getMy(user) { 
     return this.afs.collection('courses', ref => ref.where('temail', '==', user)).valueChanges();
   }
 
@@ -17,7 +17,7 @@ export class TeacherProChatService {
   }
  
   getChat(cuid) {
-    console.log(cuid);
+    //console.log(cuid);
     return this.afs.collection('chat').doc(cuid).collection('msg', ref => ref.orderBy('time')).valueChanges();
   }
 

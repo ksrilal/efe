@@ -1,29 +1,94 @@
-<h1>File Upload</h1>
-<div class="row">
-  <div class="col-md-6">
-    <div *ngIf="fileUpload.status==='error'">
-        <div [innerHTML]="fileUpload.message"></div>
-    </div>
-    <div *ngIf="fileUpload.status==='progress'">
-        <div class="progress" style="height: 20px;margin-bottom:20px;">
-          <div class="progress-bar" role="progressbar" [style.width.%]="fileUpload.message" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{fileUpload.message}}%</div>
+<nb-card>
+  <nb-card-header>
+      <nb-card-body>
+          <h3>My Courses</h3>
+      </nb-card-body>
+  </nb-card-header>
+
+  <nb-card-body>
+    <ng2-smart-table [settings]="settings" [source]="source" (rowSelect)="handleSelected($event)">
+    </ng2-smart-table>
+  </nb-card-body>
+</nb-card>
+
+
+    <h3>{{cname}}</h3>
+    <div class="row">
+      <div class="col-md-4">
+        
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="full-name-inputs">
+            <input type="text" nbInput fullWidth placeholder="Title" formControlName="name"
+                   [placeholder] = "
+                                    name.touched && name.invalid
+                                      ? 'Title Required!'
+                                      : 'Title'
+                                  "
+                   [status]= " name.touched && name.invalid ? 'danger' : 'primary' " >
+          </div>
+          <br>
+          <div class="full-name-inputs">
+            Select file to upload:
+
+            <label class="file">
+              <input type="file" class="input" (change)="upload($event)"
+                     nbInput fullWidth placeholder="Select file here..."
+                     formControlName="file" id="file" aria-label="File browser example" >
+                <span class="file-custom"></span>
+              </label>
+          </div>
+          <br>
+            <textarea rows="5" nbInput fullWidth shape="round"
+                      placeholder="Description" formControlName="des"
+                      [placeholder]="des.touched && des.invalid ? 'Description Required!' : 'Description'"
+                      [status]="des.touched && des.invalid ? 'danger' : 'primary' " >
+            </textarea>
+
+            <div class="d-flex flex-row-reverse">
+              <div class="p-2">
+                <button  nbButton status="primary" hero [disabled]="form.invalid">Submit</button>
+              </div> 
+            </div>         
+        </form>
+      </div>
+
+      <div class="col-md-4">
+        <div class="scroll">
+          <div *ngFor="let item of upData.slice().reverse()">
+                  <div class="list-group">
+                    <a class="list-group-item list-group-item-success">
+                      <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">{{item.name}}</h5>
+                        <small style="color: rgb(125, 53, 193);" >{{item.timestring}}</small>
+                      </div>
+                      <p class="mb-1" style="color: rgb(29, 47, 62);" >{{item.des}}</p>
+                      <a href="{{item.file}}" target="_blank" style="text-decoration:none" ><small style="color: rgb(125, 53, 193);" >Download</small></a>
+                    </a>
+                    <button type="button" #box value="{{item.name}}" class="btn btn-secondary btn-lg btn-block dropdown-toggle" (click)="getSubData(box.value)">Students' Submisions</button>
+                  </div>
+                  <br>   
+          </div>
         </div>
-    </div>
-    
-      <div class="form-group">
-        <input type="text" formControlName="name" class="form-control" placeholder="Name">
       </div>
-      <div class="form-group">
-        <input type="file" name="profile" (change)="onSelectedFile($event)" />
+      
+      <div class="col-md-4">
+        <div *ngIf="!subData; then thenBlock else elseBlock"></div>
+        <ng-template #thenBlock></ng-template>
+        <ng-template #elseBlock>
+          <div *ngFor="let item of subData.slice().reverse()">
+              <div class="list-group">
+                <a class="list-group-item active">
+                  <div class="d-flex w-100 justify-content-between">
+                    <h6 class="mb-1">{{item.name}}</h6>
+                    <small style="color: rgb(125, 53, 193);" >{{item.timestring}}</small>
+                  </div>
+                  <p class="mb-1" style="color: rgb(29, 47, 62);" >{{item.des}}</p>
+                  <a href="{{item.file}}" target="_blank" style="text-decoration:none" ><small style="color: rgb(255, 255, 255);" >Download</small></a>
+                </a>
+              </div>
+            </div>
+            <br>
+        </ng-template>
       </div>
-      <div class="form-group">
-        <button class="btn btn-success">Upload</button>
-      </div>
-    
-    <div *ngIf="fileUpload.status==='success'">
-      <img [src]="fileUpload.filePath" height="200px" />
-    </div>
-    <p>{{ error }}</p>
   </div>
-</div>
 

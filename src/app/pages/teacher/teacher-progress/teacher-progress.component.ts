@@ -11,7 +11,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
   styleUrls: ['./teacher-progress.component.scss']
 })
 export class TeacherProgressComponent implements OnInit {
-
+ 
   settings = {
     actions: {
       add: false,
@@ -68,7 +68,7 @@ export class TeacherProgressComponent implements OnInit {
   form = new FormGroup({
     msg: new FormControl("", Validators.required),
   });
-
+ 
   handleSelected(data) {
     this.cuid = data.data.cuid;
     this.cname = data.data.name;
@@ -79,7 +79,7 @@ export class TeacherProgressComponent implements OnInit {
     //console.log("hellooooooooo");
     //console.log(this.chatData);
   }
-
+ 
   onSubmit() {
 
       this.time = Date.now();
