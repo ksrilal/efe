@@ -17,7 +17,7 @@ export class AdminAddStudentComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  
+   
   downloadURL;
   randomId;
 

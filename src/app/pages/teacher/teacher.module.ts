@@ -43,7 +43,7 @@ import { FormsModule as ngFormsModule, ReactiveFormsModule } from '@angular/form
     ReactiveFormsModule,
   ],
   declarations: [
-    ...routedComponents,
+    ...routedComponents, 
     TeacherComponent,
     TeacherHomeComponent,
     TeacherUploadComponent,
