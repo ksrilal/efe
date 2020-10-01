@@ -101,6 +101,7 @@ export class TeacherUploadComponent implements OnInit {
   handleSelected(data) {
     this.cuid = data.data.cuid;
     this.cname = data.data.name;
+    this.subData = null;
     this.TeacherUploadService.getUpload(this.cuid).subscribe(result => {
       this.upData = result;
     });
