@@ -69,10 +69,10 @@
 
 
         <!-- exam mark's form begins -->
-        <div class="col-md-6">
+        <!-- <div class="col-md-6">
           <br>
           <h5>Exam Marks Form</h5>
-          <form [formGroup]="examForm" (ngSubmit)="onSubmit()">
+          <form [formGroup]="examForm" (ngSubmit)="marksSubmit()">
 
             <div class="form-group row">
               <label for="colFormLabel" class="col-sm-5 col-form-label">Exam Name</label>
@@ -88,7 +88,14 @@
             </div>
             <br>
             <h6>Student List</h6>
-            <div *ngFor="let item of stuData">
+
+            <div *ngFor="let item of studentMarks">
+              {{item.stuId}} <input type="number" name="" id="" (input)="valueChange($event.target.value, studentMarks.indexOf(item))">
+            </div>
+
+            <button (click)="print()" ></button>-->
+
+            <!-- <div *ngFor="let item of stuData">
               <div class="form-group row">
                 <label for="colFormLabel" class="col-sm-5 col-form-label">{{item.sid}} - {{item.name}}</label>
                 <div class="col-sm-3">
@@ -101,8 +108,8 @@
                           [status]= " marks.touched && marks.invalid ? 'danger' : 'primary' " class="form-control">
                 </div>
               </div>
-            </div>
-            <br>
+            </div> -->
+           <!-- <br>
 
             <div class="form-group row">
               <label for="colFormLabel" class="col-sm-5 col-form-label">Description</label>
@@ -120,6 +127,6 @@
               </div> 
                       
           </form>
-        </div>
+        </div> -->
         </div> 
         </nb-card>

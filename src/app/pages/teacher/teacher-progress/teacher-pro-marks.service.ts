@@ -13,4 +13,8 @@ export class TeacherProMarksService {
     return this.afs.collection('courseStu').doc(cuid).collection('students').valueChanges(); 
   }
 
+  add(data,cuid) {
+    this.afs.collection('examMarks').doc(cuid).set(data);
+  }
+
 }
