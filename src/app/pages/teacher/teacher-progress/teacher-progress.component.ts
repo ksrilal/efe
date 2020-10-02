@@ -4,6 +4,7 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { LoginService } from "../../../login/login.service";
 import * as moment from 'moment';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { TeacherProMarksService } from "./teacher-pro-marks.service";
 
 @Component({
   selector: 'ngx-teacher-progress',
@@ -46,8 +47,9 @@ export class TeacherProgressComponent implements OnInit {
   chatData;
   chat;
   time;
+  stuData;
 
-  constructor(private TeacherProChatService: TeacherProChatService, private LoginService: LoginService, ) {
+  constructor(private TeacherProChatService: TeacherProChatService, private LoginService: LoginService, private TeacherProMarksService: TeacherProMarksService) {
 
     this.senderMail = localStorage.getItem("mail");
     //console.log("userrrrrrr " + this.user);
@@ -75,6 +77,9 @@ export class TeacherProgressComponent implements OnInit {
     this.TeacherProChatService.getChat(this.cuid).subscribe(result => {
       this.chatData = result;
     });
+    this.TeacherProMarksService.getStuData(this.cuid).subscribe(result => {
+      this.stuData = result;
+    }); 
     //this.chat = this.chatData[0]; 
     //console.log("hellooooooooo");
     //console.log(this.chatData);
@@ -105,7 +110,22 @@ export class TeacherProgressComponent implements OnInit {
 
   get msg() {
     return this.form.get("msg");
+  }
 
+examForm = new FormGroup({
+  examName: new FormControl("", Validators.required),
+  des: new FormControl("",),
+  marks: new FormControl(0, Validators.required),
+});
+
+get examName() {
+  return this.examForm.get("examName");
+}
+get des() {
+  return this.examForm.get("des");
+}
+get marks() {
+  return this.examForm.get("marks");
 }
 
 }

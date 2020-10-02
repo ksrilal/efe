@@ -20,7 +20,7 @@ export class StudentHomeComponent implements OnInit {
     this.status1 = false;
     this.status2 = true;
 }
-
+ 
 //all courses table
   settings1 = {
     actions: {
@@ -97,12 +97,16 @@ export class StudentHomeComponent implements OnInit {
     attr: {
       class: 'table table-bordered'
     },
-  };
+  }; 
 
 
   source1;
   source2;
   user;
+  userDetails;
+  username;
+  userid;
+
     ngOnInit(): void {
       this.user = localStorage.getItem("mail");
     }
@@ -118,7 +122,10 @@ export class StudentHomeComponent implements OnInit {
     StudentHomeService.getMy(this.user).subscribe(result => {
       this.source2 = result;
     });
-
+    
+    StudentHomeService.getMyDetails().subscribe(result => {
+      this.userDetails = result;
+    });
   }
 
   // add data to my courses.....
@@ -138,11 +145,23 @@ export class StudentHomeComponent implements OnInit {
             break;
           }
         }
+       // let tag = true;
+        for (var i = 0; i < this.userDetails.length; i++) {
+          if (this.userDetails[i].email == this.user){
+              this.username = this.userDetails[i].name;
+              this.userid = this.userDetails[i].sid;
+
+            //tag = false;
+            break;
+          }
+        }
         // console.log("adoooooooooooooooooo");
         // console.log(flag);
 
         if(flag) {
-          this.StudentHomeService.add(event.data, this.user);
+          this.StudentHomeService.add(event.data, this.user, event.data.cuid, this.username, this.userid);
+          console.log("adoooooooooooooooooo******************");
+          console.log(this.username);
         }
 
       } else {

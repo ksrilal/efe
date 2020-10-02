@@ -90,7 +90,7 @@ export class TeacherUploadComponent implements OnInit {
     des: new FormControl("", Validators.required),
     name: new FormControl("", Validators.required),
   });
-
+ 
   get des() {
     return this.form.get("des");
   }

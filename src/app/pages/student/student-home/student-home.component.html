@@ -2,11 +2,19 @@
 <nb-card>
     <nb-card-header>
         <nb-card-body>
-            <button class="button button1" (click)=status1changes()>All Courses</button>
-            <button class="button button1" (click)=status2changes()>My Courses</button>
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-secondary active" (click)=status1changes()>
+              <input type="radio" name="options" id="option1" autocomplete="off" checked> All Courses
+            </label>
+            <label class="btn btn-secondary" (click)=status2changes()>
+              <input type="radio" name="options" id="option2" autocomplete="off"> My Courses
+            </label>
+          </div>
+            <!-- <button class="button button1 btn btn-outline-primary" (click)=status1changes()>All Courses</button>
+            <button class="button button1 btn btn-outline-primary" (click)=status2changes()>My Courses</button> -->
         </nb-card-body>
     </nb-card-header>
-
+ 
     <nb-card-body>
       <!-- all courses -->
       <div *ngIf="status1">
