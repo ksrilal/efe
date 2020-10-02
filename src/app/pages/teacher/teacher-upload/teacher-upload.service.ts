@@ -16,7 +16,7 @@ export class TeacherUploadService {
     // console.log(data);
     // console.log("csvsjkjcdbvhbdvbshdvbhdvsh");
     // console.log(cuid);
-  }
+  } 
 
   getUpload(cuid) {
     //console.log(cuid);

@@ -33,6 +33,7 @@ export class AdminAddStudentComponent implements OnInit {
   form = new FormGroup({
     name: new FormControl("", Validators.required),
     des: new FormControl("", Validators.required),
+    sid: new FormControl("", Validators.required),
     pic: new FormControl("", Validators.required),
     email: new FormControl("", [Validators.required, Validators.email]),
     password: new FormControl("", [
@@ -82,6 +83,9 @@ export class AdminAddStudentComponent implements OnInit {
   }
   get name() {
     return this.form.get("name");
+  }
+  get sid() {
+    return this.form.get("sid");
   }
   get pname() {
     return this.form.get("pname");
