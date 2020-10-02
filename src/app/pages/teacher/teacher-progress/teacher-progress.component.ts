@@ -5,6 +5,7 @@ import { LoginService } from "../../../login/login.service";
 import * as moment from 'moment';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { TeacherProMarksService } from "./teacher-pro-marks.service";
+import { StuMarks } from './stu-marks.modal';
 
 @Component({
   selector: 'ngx-teacher-progress',
@@ -47,7 +48,9 @@ export class TeacherProgressComponent implements OnInit {
   chatData;
   chat;
   time;
-  stuData;
+  //stuData;
+
+  studentMarks: StuMarks[] = [];
 
   constructor(private TeacherProChatService: TeacherProChatService, private LoginService: LoginService, private TeacherProMarksService: TeacherProMarksService) {
 
@@ -77,14 +80,27 @@ export class TeacherProgressComponent implements OnInit {
     this.TeacherProChatService.getChat(this.cuid).subscribe(result => {
       this.chatData = result;
     });
-    this.TeacherProMarksService.getStuData(this.cuid).subscribe(result => {
-      this.stuData = result;
-    }); 
+
+    // this.TeacherProMarksService.getStuData(this.cuid).subscribe(result => {
+    //   this.stuData = result;
+    //   console.log(result.length + "csddcsdcsdcsdcsdc");
+    //   result.forEach( item => {
+    //     this.studentMarks.push({stuId: item.sid, marks: 0});
+    //   })
+    // }); 
+
     //this.chat = this.chatData[0]; 
     //console.log("hellooooooooo");
     //console.log(this.chatData);
   }
- 
+
+  print(){
+    console.log(this.studentMarks)
+  }
+
+  valueChange(marks, index){
+    this.studentMarks[index].marks = marks;
+  } 
   onSubmit() {
 
       this.time = Date.now();
@@ -112,20 +128,26 @@ export class TeacherProgressComponent implements OnInit {
     return this.form.get("msg");
   }
 
-examForm = new FormGroup({
-  examName: new FormControl("", Validators.required),
-  des: new FormControl("",),
-  marks: new FormControl(0, Validators.required),
-});
+// examForm = new FormGroup({
+//   examName: new FormControl("", Validators.required),
+//   des: new FormControl("",),
+  
+//   marks: new FormControl(null, Validators.required),
+// });
 
-get examName() {
-  return this.examForm.get("examName");
-}
-get des() {
-  return this.examForm.get("des");
-}
-get marks() {
-  return this.examForm.get("marks");
-}
+// get examName() {
+//   return this.examForm.get("examName");
+// }
+// get des() {
+//   return this.examForm.get("des");
+// }
+// get marks() {
+//   return this.examForm.get("marks");
+// }
+
+// marksSubmit() {
+//   this.TeacherProMarksService.add(this.examForm.value, this.cuid);
+//   this.examForm.reset();
+// }
 
 }
