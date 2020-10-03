@@ -1,0 +1,65 @@
+<div class="row">
+  <div class="col-lg-6">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <nb-card>
+        
+        <nb-card-header>Modify Course</nb-card-header>
+        
+        <nb-card-body>
+          
+          <label class="label">Enter course Id : </label>
+          <input type="text" nbInput fullWidth placeholder="Course id" formControlName="cuid"
+            [placeholder]="cuid.touched && cuid.invalid ? 'Course ID Required!' : 'Course Id' "
+            [status]="cuid.touched && cuid.invalid ? 'danger' : 'primary' ">
+
+          <br/><br/>
+
+          <button nbButton status="primary" hero [disabled]="form.invalid">
+            Edit
+          </button>
+
+        </nb-card-body>
+      
+      </nb-card>
+    </form>
+
+    <!-- <form [formGroup] = "form1">
+      <nb-card>
+        <nb-card-body>
+          <label class="label">Course Name : </label>
+          <input type="text" nbInput fullWidth placeholder="Course Name" formControlName="name"
+            [placeholder]="name.touched && name.invalid ? 'Course Name Required!' : 'Course Name'"
+            [status]="name.touched && name.invalid ? 'danger' : 'primary'"> 
+                
+          <label class="label">Teacher's Name : </label>
+          <input type="text" nbInput fullWidth placeholder="Teacher\'s Name" formControlName="tname"
+            [placeholder]="tname.touched && tname.invalid ? 'Teacher\'s Name Required!' : 'Teacher\'s Name' "
+            [status]="tname.touched && tname.invalid ? 'danger' : 'primary' ">
+
+
+          <label class="label">Teacher's E-mail : </label>
+          <input type="text" nbInput fullWidth placeholder="Teacher\'s E-mail" formControlName="temail"
+            [placeholder]="temail.touched && temail.invalid ? 'Teacher\'s E-mail Required!' : 'Teacher\'s E-mail' "
+            [status]="temail.touched && temail.invalid ? 'danger' : 'primary' ">
+
+          <label class="label">Date : </label>
+          <input type="text" nbInput fullWidth placeholder="Date" formControlName="date"
+            [placeholder]="date.touched && date.invalid ? 'Date Required!' : 'Date' "
+            [status]="date.touched && date.invalid ? 'danger' : 'primary' ">
+
+          <label class="label">Time : </label>
+          <input type="text" nbInput fullWidth placeholder="Time" formControlName="time"
+            [placeholder]="time.touched && time.invalid ? 'Time Required!' : 'Time' "
+            [status]="time.touched && time.invalid ? 'danger' : 'primary' ">
+
+          <button  nbButton status="primary" hero [disabled]="form.invalid">
+            Update
+          </button>
+        </nb-card-body>
+      </nb-card>
+    </form> -->
+      
+  </div>
+</div>
+
+
