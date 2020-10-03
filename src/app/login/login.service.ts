@@ -43,14 +43,14 @@ export class LoginService {
 
     SignIn(email: string, password: string) {
       this.afs
-        .collection("student", ref => ref.where("email", "==", email))
+        .collection("user", ref => ref.where("email", "==", email))
         .snapshotChanges()
         .subscribe(res => {
           if (res.length > 0) {
             console.log("doocument exist");
   
             this.afs
-              .collection("student")
+              .collection("user")
               .doc(email)
               .valueChanges()
               .subscribe(val => {
