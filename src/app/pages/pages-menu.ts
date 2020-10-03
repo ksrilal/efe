@@ -3,35 +3,35 @@ import { title } from 'process';
 
 export const student: NbMenuItem[] = [
   //**********student dashboard
-  // {
-  //   title: "Dashboard",
-  //   icon: "home-outline",
-  //   link: "/pages/iot-dashboard",
-  //   home: true
-  // },
+  {
+    title: "Home",
+    icon: "home-outline",
+    link: "/pages/iot-dashboard",
+    home: true
+  },
   {
     title: 'STUDENTS',
     group: true,
   },
   {
     title: 'Courses',
-    icon: 'home-outline',
+    icon: 'grid-outline',
     link: '/pages/student/studenthome',
-    home: true,
+    //home: true,
   },
   {
-    title: 'Student Progress',
-    icon: 'pie-chart-outline',
+    title: 'My Courses',
+    icon: 'grid-outline',
     link: '/pages/student/studentprogress',
   },
   {
-    title: 'Student Payment',
+    title: 'Invoice',
     icon: 'grid-outline',
     link: '/pages/student/studentcourse',
   },
   {
-    title: 'Student Profile Setting',
-    icon: 'edit-2-outline',
+    title: 'Profile',
+    icon: 'grid-outline',
     link: '/pages/student/studentprofile',
   },
 ];
@@ -39,60 +39,60 @@ export const student: NbMenuItem[] = [
 
 export const teacher: NbMenuItem[] = [
   //**********teacher dashboard
-  // {
-  //   title: "Dashboard",
-  //   icon: "home-outline",
-  //   link: "/pages/iot-dashboard",
-  //   home: true
-  // },
+  {
+    title: "Home",
+    icon: "home-outline",
+    link: "/pages/iot-dashboard",
+    home: true
+  },
   {
     title: 'TEACHER',
     group: true,
   },
   {
-    title: 'Teacher Dashboard',
-    icon: 'home-outline',
+    title: 'Courses',
+    icon: 'grid-outline',
     link: '/pages/teacher/teacherhome',
-    home: true,
+    //home: true,
   },
   {
-    title: 'Teacher Uploads',
-    icon: 'text-outline',
+    title: 'Tutorials',
+    icon: 'grid-outline',
     link: '/pages/teacher/teacherupload',
   },
   {
-    title: 'Teacher Progress',
-    icon: 'pie-chart-outline',
+    title: 'Chat',
+    icon: 'grid-outline',
     link: '/pages/teacher/teacherprogress',
   },
   {
-    title: 'Teacher Profile Setting',
-    icon: 'edit-2-outline',
+    title: 'Profile',
+    icon: 'grid-outline',
     link: '/pages/teacher/teacherprofile',
   },
 ];
 
 export const admin: NbMenuItem[] = [
   //**********admin dashboard
-  // {
-  //   title: "Dashboard",
-  //   icon: "home-outline",
-  //   link: "/pages/iot-dashboard",
-  //   home: true
-  // },
+  {
+    title: "Home",
+    icon: "home-outline",
+    link: "/pages/iot-dashboard",
+    home: true
+  },
   {
     title: 'ADMINISTRATION',
     group: true,
   },
  {
-    title: 'Admin Dashboard',
-    icon: 'home-outline',
+    title: 'Post',
+    icon: 'grid-outline',
     link: '/pages/admin/adminhome',
-    home: true,
+    //home: true,
   },
   {
-    title: 'Admin Student Handle',
-    icon: 'text-outline',
+    title: 'Student Handle',
+    icon: 'grid-outline',
     children: [
       {
         title: 'Register Student',
@@ -105,8 +105,8 @@ export const admin: NbMenuItem[] = [
     ]
   },
   {
-    title: 'Admin Teacher Handle',
-    icon: 'pie-chart-outline',
+    title: 'Teacher Handle',
+    icon: 'grid-outline',
     children: [
       {
         title: 'Register Teacher',
@@ -119,29 +119,29 @@ export const admin: NbMenuItem[] = [
     ]
   },
   {
-    title: 'Admin Course Handle',
-    icon: 'pie-chart-outline',
+    title: 'Course Handle',
+    icon: 'grid-outline',
     children: [
       {
-        title: 'Add Courses',
+        title: 'Add Course',
         link: '/pages/admin/adminaddcourse',
       },
       {
-        title: 'Modify Courses',
+        title: 'Modify Course',
         link: '/pages/admin/admincoursehandle',
       },
     ]
   },
   {
-    title: 'Admin Payments Handle',
-    icon: 'pie-chart-outline',
+    title: 'Payments Handle',
+    icon: 'grid-outline',
     link: '/pages/admin/adminpaymenthandle',
   },
-  {
-    title: 'Admin Profile Setting',
-    icon: 'edit-2-outline',
-    link: '/pages/admin/adminprofile',
-  },
+  // {
+  //   title: 'Profile',
+  //   icon: 'grid-outline',
+  //   link: '/pages/admin/adminprofile',
+  // },
 ];
 
 
@@ -149,12 +149,12 @@ export const admin: NbMenuItem[] = [
 
 export const all: NbMenuItem[] = [
    //**********student dashboard
-  //  {
-  //   title: "Dashboard",
-  //   icon: "home-outline",
-  //   link: "/pages/iot-dashboard",
-  //   home: true
-  // },
+   {
+    title: "Home",
+    icon: "home-outline",
+    link: "/pages/iot-dashboard",
+    home: true
+  },
   {
     title: 'STUDENTS',
     group: true,
@@ -163,7 +163,7 @@ export const all: NbMenuItem[] = [
     title: 'Courses',
     icon: 'home-outline',
     link: '/pages/student/studenthome',
-    home: true,
+    //home: true,
   },
   {
     title: 'My Courses',
@@ -182,7 +182,7 @@ export const all: NbMenuItem[] = [
   },
    //**********teacher dashboard
   //  {
-  //   title: "Dashboard",
+  //   title: "Home",
   //   icon: "home-outline",
   //   link: "/pages/iot-dashboard",
   //   home: true
@@ -214,7 +214,7 @@ export const all: NbMenuItem[] = [
   },
   //**********admin dashboard
   // {
-  //   title: "Dashboard",
+  //   title: "Home",
   //   icon: "home-outline",
   //   link: "/pages/iot-dashboard",
   //   home: true
@@ -227,7 +227,7 @@ export const all: NbMenuItem[] = [
     title: 'Admin Dashboard',
     icon: 'home-outline',
     link: '/pages/admin/adminhome',
-    //home: true,
+    home: true,
   },
   {
     title: 'Admin Student Handle',

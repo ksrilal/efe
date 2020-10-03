@@ -144,7 +144,7 @@ export class StudentHomeComponent implements OnInit {
             flag = false;
             break;
           }
-        }
+        } 
        // let tag = true;
         for (var i = 0; i < this.userDetails.length; i++) {
           if (this.userDetails[i].email == this.user){
@@ -159,9 +159,10 @@ export class StudentHomeComponent implements OnInit {
         // console.log(flag);
 
         if(flag) {
+          //event.data.status = "not paid";
           this.StudentHomeService.add(event.data, this.user, event.data.cuid, this.username, this.userid);
-          console.log("adoooooooooooooooooo******************");
-          console.log(this.username);
+          //console.log("adoooooooooooooooooo******************");
+          //console.log(this.username);
         }
 
       } else {

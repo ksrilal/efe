@@ -18,7 +18,7 @@ export class StudentHomeService {
   getMy(user) {
     return this.afs.collection('stucourses').doc(user).collection('mycourse').valueChanges({idField:"id"});
   }
-
+ 
   getMyDetails() {
     return this.afs.collection('student').valueChanges({idField:"id"});
   }
@@ -34,7 +34,7 @@ export class StudentHomeService {
       name: username,
       sid: sid,
       email: user, 
-      state: "not paid",
+      status: "not paid",
       time: this.time,
       timeString: t,
   });
