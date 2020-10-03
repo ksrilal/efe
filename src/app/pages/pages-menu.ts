@@ -3,12 +3,12 @@ import { title } from 'process';
 
 export const student: NbMenuItem[] = [
   //**********student dashboard
-  {
-    title: "Dashboard",
-    icon: "home-outline",
-    link: "/pages/iot-dashboard",
-    home: true
-  },
+  // {
+  //   title: "Dashboard",
+  //   icon: "home-outline",
+  //   link: "/pages/iot-dashboard",
+  //   home: true
+  // },
   {
     title: 'STUDENTS',
     group: true,
@@ -17,7 +17,7 @@ export const student: NbMenuItem[] = [
     title: 'Courses',
     icon: 'home-outline',
     link: '/pages/student/studenthome',
-   // home: true,
+    home: true,
   },
   {
     title: 'Student Progress',
@@ -39,12 +39,12 @@ export const student: NbMenuItem[] = [
 
 export const teacher: NbMenuItem[] = [
   //**********teacher dashboard
-  {
-    title: "Dashboard",
-    icon: "home-outline",
-    link: "/pages/iot-dashboard",
-    home: true
-  },
+  // {
+  //   title: "Dashboard",
+  //   icon: "home-outline",
+  //   link: "/pages/iot-dashboard",
+  //   home: true
+  // },
   {
     title: 'TEACHER',
     group: true,
@@ -53,7 +53,7 @@ export const teacher: NbMenuItem[] = [
     title: 'Teacher Dashboard',
     icon: 'home-outline',
     link: '/pages/teacher/teacherhome',
-    //home: true,
+    home: true,
   },
   {
     title: 'Teacher Uploads',
@@ -74,12 +74,12 @@ export const teacher: NbMenuItem[] = [
 
 export const admin: NbMenuItem[] = [
   //**********admin dashboard
-  {
-    title: "Dashboard",
-    icon: "home-outline",
-    link: "/pages/iot-dashboard",
-    home: true
-  },
+  // {
+  //   title: "Dashboard",
+  //   icon: "home-outline",
+  //   link: "/pages/iot-dashboard",
+  //   home: true
+  // },
   {
     title: 'ADMINISTRATION',
     group: true,
@@ -88,7 +88,7 @@ export const admin: NbMenuItem[] = [
     title: 'Admin Dashboard',
     icon: 'home-outline',
     link: '/pages/admin/adminhome',
-    //home: true,
+    home: true,
   },
   {
     title: 'Admin Student Handle',
@@ -145,16 +145,16 @@ export const admin: NbMenuItem[] = [
 ];
 
 
-//for vip admin to view all
+//for vip admin to view all**********************************************************
 
 export const all: NbMenuItem[] = [
    //**********student dashboard
-   {
-    title: "Dashboard",
-    icon: "home-outline",
-    link: "/pages/iot-dashboard",
-    home: true
-  },
+  //  {
+  //   title: "Dashboard",
+  //   icon: "home-outline",
+  //   link: "/pages/iot-dashboard",
+  //   home: true
+  // },
   {
     title: 'STUDENTS',
     group: true,
@@ -163,7 +163,7 @@ export const all: NbMenuItem[] = [
     title: 'Courses',
     icon: 'home-outline',
     link: '/pages/student/studenthome',
-   // home: true,
+    home: true,
   },
   {
     title: 'My Courses',

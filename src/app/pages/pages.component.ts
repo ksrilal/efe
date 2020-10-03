@@ -28,7 +28,7 @@ export class PagesComponent {
 
 
     console.log(localStorage.getItem("role"));
-    //var roll = localStorage.getItem("role");
+    var roll = localStorage.getItem("role");
 
     if (roll == "student") {
       this.menu = student;

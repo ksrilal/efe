@@ -11,7 +11,7 @@ export class TeacherGuardService implements CanActivate{
   canActivate() {
     var roleType = localStorage.getItem("role");
     console.log("the role is " + roleType);
-    if (this.lg.isAuthenticated && roleType == "student") {
+    if (this.lg.isAuthenticated && roleType == "teacher") {
       return true;
     } else {
       this.router.navigate(["/page"]);
