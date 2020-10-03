@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TeacherProfileService } from "./teacher-profile.service";
 
 @Component({
   selector: 'ngx-teacher-profile',
@@ -6,17 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./teacher-profile.component.scss']
 })
 export class TeacherProfileComponent implements OnInit {
-  starRate = 2;
-  heartRate = 4;
-  radioGroupValue = 'This is value 2';
+  senderMail;
+  userData;
 
-  constructor() { }
+  constructor(private TeacherProfileService: TeacherProfileService) {
+    this.senderMail = localStorage.getItem("mail");
+
+    TeacherProfileService.getUser(this.senderMail).subscribe(result => {
+      this.userData = result;
+    });
+   }
 
   ngOnInit(): void {
   }
-  inputFile;
-  filename = '';
-  uid;
-  photoURL = '../../assets/images/default-profile.jpg';
 
 }

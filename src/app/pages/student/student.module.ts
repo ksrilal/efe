@@ -20,6 +20,7 @@ import {
 } from '@nebular/theme';
 import { FormsModule as ngFormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StudentListComponent } from './student-list/student-list.component';
+import { StudentCourseInvoiceComponent } from './student-course/student-course-invoice/student-course-invoice.component';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import { StudentListComponent } from './student-list/student-list.component';
     StudentProgressComponent,
     StudentProfileComponent,
     StudentListComponent,
+    StudentCourseInvoiceComponent,
   ],
 }) 
 

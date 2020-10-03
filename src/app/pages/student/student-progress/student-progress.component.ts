@@ -33,16 +33,16 @@ export class StudentProgressComponent implements OnInit {
         title: 'Tutor',
         type: 'string',
       },
-      tid: {
+      temail: {
+        title: 'Tutor Email',
+        type: 'string',
+      },
+      date: {
         title: 'Day',
         type: 'string',
       },
       time: {
         title: 'Time',
-        type: 'string',
-      },
-      status: {
-        title: 'Status',
         type: 'string',
       },
     },
@@ -65,6 +65,8 @@ export class StudentProgressComponent implements OnInit {
 
     StudentProChatService.getMy(this.senderMail).subscribe(result => {
       this.source = result;
+      //alert(this.source);
+
     });
 
     StudentProChatService.getUser(this.senderMail).subscribe(result => {

@@ -10,7 +10,7 @@ export class StudentProChatService {
   constructor(private afs: AngularFirestore) { }
 
   getMy(user) {
-    return this.afs.collection('stucourses').doc(user).collection('mycourse').valueChanges({idField:"id"});
+    return this.afs.collection('stucourses').doc(user).collection('mycourse', ref => ref.where('status', '==', "paid")).valueChanges()
   }
 
   getUser(user) {
@@ -18,7 +18,6 @@ export class StudentProChatService {
   } 
  
   getChat(cuid) {
-    console.log(cuid);
     return this.afs.collection('chat').doc(cuid).collection('msg', ref => ref.orderBy('time')).valueChanges();
   }
 

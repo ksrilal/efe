@@ -1,64 +1,38 @@
-<div class=row>
-    <div class="col-md-5">
-      <form [formGroup]="this.usersService.form"  (ngSubmit)="onSubmit()">
-        <input type="hidden" formControlName="$id">
-        <div class="form-group">
-          <label>First name</label>
-          <input formControlName="firstName" class="form-control" [ngClass]="{'is-invalid' : submitted && formControls.firstName.errors}">
-          <div class="invalid-feedback" *ngIf="submitted && formControls.firstName.errors">
-            This field is required</div>
-        </div>
-        <div class="formGroup">
-          <label>Last name</label>
-          <input formControlName="lastName" class="form-control" [ngClass]="{'is-invalid' : submitted && formControls.lastName.errors}">
-          <div class="invalid-feedback" *ngIf="submitted && formControls.lastName.errors">
-            This field is required</div>
-        </div>
-        <div class="formGroup">
-          <label>Phone number</label>
-          <input formControlName="mobile" class="form-control" [ngClass]="{'is-invalid' : submitted && formControls.mobile.errors}">
-          <div class="invalid-feedback" *ngIf="submitted && formControls.mobile.errors">
-            <label *ngIf="formControls.mobile.errors.minlength">Atleast 10 numbers.</label>
-            </div>
-        </div>
-        <div class="formGroup">
-          <label>Email</label>
-          <input formControlName="email" class="form-control" [ngClass]="{'is-invalid' : submitted && formControls.email.errors}">
-          <div class="invalid-feedback" *ngIf="submitted && formControls.email.errors">
-            Invalid Email address</div>
-        </div>
-        <div class="formGroup">
-          <label>Home address</label>
-          <input formControlName="homeAddress" class="form-control" [ngClass]="{'is-invalid' : submitted && formControls.homeAddress.errors}">
-          <div class="invalid-feedback" *ngIf="submitted && formControls.homeAddress.errors">
-            This field is required</div>
-        </div>
-        <div class="formGroup">
-          <label>Parent Name</label>
-          <input formControlName="parentName" class="form-control" [ngClass]="{'is-invalid' : submitted && formControls.parentName.errors}">
-          <div class="invalid-feedback" *ngIf="submitted && formControls.parentName.errors">
-            This field is required</div>
-        </div>
-        <div class="formGroup">
-          <label>Parent phone number</label>
-          <input formControlName="parentMobile" class="form-control" [ngClass]="{'is-invalid' : submitted && formControls.parentMobile.errors}">
-          <div class="invalid-feedback" *ngIf="submitted && formControls.parentMobile.errors">
-            <label *ngIf="formControls.parentMobile.errors.required">This field is required</label>
-            <label *ngIf="formControls.parentMobile.errors.minlength">Atleast 10 numbers.</label>
-            </div>
-        </div>
-        <div class="form-group">
-          <input type="submit" class="btn btn-primary" value="Submit" >
-        </div>
-      </form>
-     
-    <div class="alert alert-info" *ngIf = "showSuccessMessage">
-      Submitted successfully.
-    </div>
-  </div>
-    <div class="col-md-7">
-      <ngx-student-list></ngx-student-list>
-    </div>
-  </div>
-  
+<div class="row">
+  <div class="col-lg-6">
+    <nb-card>
+      <nb-card-header>My Profile</nb-card-header>
+      <nb-card-body>
+          <label class="image-upload-container btn btn-bwm">             
+              <span class="col-auto  px-5 ml-3"><img src="{{userData.pic}}" width="300" height="300" class=" align-self-center" id="displayPhoto"></span>
+          </label>
+        <!-- <input type="text" nbInput fullWidth placeholder="Register Number" required> -->
+
+      <div class="full-name-inputs">
+        <label type="text" class="col-sm-4" required>Name</label>
+          <span> : </span>
+          <input type="text" nbInput class="col-sm-6" placeholder="{{userData.name}}" required>            
+      </div>
+      <div class="full-name-inputs">
+        <label type="text" class="col-sm-4" required>Phone</label>
+        <span> : </span>
+        <input type="text" nbInput class="col-sm-6" placeholder="{{userData.mobile}}" required>            
+      </div>
+      <div class="full-name-inputs">
+        <label type="text" class="col-sm-4" required>Description</label>
+        <span> : </span>
+        <textarea rows="5" nbInput class="col-sm-6" shape="round"  placeholder="{{userData.des}}" required></textarea>            
+      </div>
+      
+       
+      </nb-card-body>
+    </nb-card>
+  </div>  
+</div>
+<!-- <div class="form-group">
+  <button  class="btn btn-lg btn-black btn-info">Sumbit</button>
+</div>  -->
+
+
+
 

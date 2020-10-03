@@ -1,15 +1,94 @@
 
-<nb-card>
-    <nb-card-header>
-        <nb-card-body>
-            <h3>My Courses</h3>
-        </nb-card-body>
-    </nb-card-header>
-  
-    <nb-card-body>
-      <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)">
-      </ng2-smart-table>
-    </nb-card-body>
-  </nb-card>
-  
+<div *ngIf="courseBlock">
+  <div class="container">
+  <nb-card>
+      <nb-card-header>
+          <nb-card-body>
+              <h3>My Courses</h3>
+          </nb-card-body>
+      </nb-card-header>
+    
+      <nb-card-body>
+        <ng2-smart-table [settings]="settings" [source]="source" (rowSelect)="handleSelected($event)">
+        </ng2-smart-table>  
+      </nb-card-body>
+    </nb-card>
+      <!-- <div class="row justify-content-md-center">
+        <p style="color: crimson;">Click Not Paid Class Row To Get Payment Instructions.</p>
+      </div> -->
+    </div>
 
+    <div *ngIf="paidBlock">
+      <div class="card transition">
+        <h2 class="transition">MONTHLY CLASS FEE NOT PAID!</h2>
+        <p>Your this month class fee of <b>Rs. 1000</b> is pending for this class. <b>Please pay as soon as posible to re-gain your access!</b></p>
+        <div class="d-flex">
+          <div class="cta-container transition p-2" style="color: rgb(186, 217, 245);"><a type="button" class="cta" (click)="payBlock()" >Pay Now</a></div>
+          <div class="cta-container p-2" style="color: rgb(235, 176, 186);"><a type="button" (click)="cancelBlock()" class="ctac"> Cancel </a></div>
+        </div>
+        <div class="card_circle transition"></div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="paymentGetwayBlock">
+      <div class="container" >
+        <div class="row justify-content-md-center">
+            <div class="col-xs-12 col-md-4" style="background-color: rgb(255, 255, 255);">
+                <div class="panel panel-default" >
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            Payment Details
+                        </h3>
+                        <div class="checkbox pull-right">
+                            <label>
+                                <input type="checkbox" />
+                                Remember
+                            </label>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <form role="form">
+                        <div class="form-group">
+                            <label for="cardNumber">
+                                CARD NUMBER</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="cardNumber" placeholder="Valid Card Number"
+                                    required autofocus />
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-7 col-md-7">
+                                <div class="form-group">
+                                    <label for="expityMonth">
+                                        EXPIRY DATE</label>
+                                    <div class="col-xs-6 col-lg-6 pl-ziro">
+                                        <input type="text" class="form-control" id="expityMonth" placeholder="MM" required />
+                                    </div>
+                                    <div class="col-xs-6 col-lg-6 pl-ziro">
+                                        <input type="text" class="form-control" id="expityYear" placeholder="YY" required /></div>
+                                </div>
+                            </div>
+                            <div class="col-xs-5 col-md-5 pull-right">
+                                <div class="form-group">
+                                    <label for="cvCode">
+                                        CV CODE</label>
+                                    <input type="password" class="form-control" id="cvCode" placeholder="CV" required />
+                                </div>
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+                <ul class="nav nav-pills nav-stacked">
+                    <li class="active"><a ><span class="badge pull-right"><span class="glyphicon">Rs. </span>1000</span> Final Payment</a>
+                    </li>
+                </ul>
+                <br/>
+                <a type="button" style="font-size: medium; color: aliceblue;" class="btn btn-success btn-lg btn-block" role="button" (click)="pay()"><b>Pay</b></a>
+                <a type="button" style="font-size: medium; color: aliceblue;" class="btn btn-danger btn-lg btn-block" role="button" (click)="back()"><b>Cancell</b></a>
+            </div>
+        </div>
+    </div>
+    </div> 
