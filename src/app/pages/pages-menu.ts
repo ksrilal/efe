@@ -49,12 +49,12 @@ export const teacher: NbMenuItem[] = [
     title: 'TEACHER',
     group: true,
   },
-  {
-    title: 'Courses',
-    icon: 'grid-outline',
-    link: '/pages/teacher/teacherhome',
-    //home: true,
-  },
+  // {
+  //   title: 'Courses',
+  //   icon: 'grid-outline',
+  //   link: '/pages/teacher/teacherhome',
+  //   //home: true,
+  // },
   {
     title: 'Tutorials',
     icon: 'grid-outline',
