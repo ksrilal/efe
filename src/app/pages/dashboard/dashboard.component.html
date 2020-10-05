@@ -4,11 +4,12 @@
 
     <div class="col-3">
       <h6 class="card-title text-center" style="margin-top: 10px; color: cadetblue;">Site Anouncements</h6>
-      <div class="card">
+      <div class="card" *ngFor="let anounce of anouncementData.slice().reverse()">
         <div class="card-body">
-          <h6 class="card-title">Anouncement</h6>
-          <h6 class="card-subtitle mb-2 text-muted"> <small>time</small></h6>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <h6 class="card-title">{{anounce.name}}</h6>
+          <h6 class="card-subtitle mb-2 text-muted"> <small>{{anounce.timestring}}</small></h6>
+          <p class="card-text">{{anounce.des}}</p>
+          <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete" (click)="deleteAnounce(anounce.timestring)" *ngIf="userData.role == 'admin'"><i class="fa fa-trash" ></i></button>
         </div>
       </div>
     </div>
@@ -176,13 +177,14 @@
     </div>
 
 
-    <div class="col-3">
+    <div class="col-3" >
       <h6 class="card-title text-center" style="margin: 10px; color: cadetblue;">Our Courses</h6>
-      <div class="card">
+      <div class="card" *ngFor="let val of courseData">
         <div class="card-body">
-          <h6 class="card-title">Course Name</h6>
-          <h6 class="card-subtitle mb-2 text-muted">Tutor</h6>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <h6 class="card-title" style="color: dodgerblue;">{{val.name}}</h6>
+          <h6 class="card-subtitle mb-2 text-muted">{{val.tname}}</h6>
+          <h6 class="card-subtitle mb-2 text-muted"><small>{{val.temail}}</small></h6>
+          <p class="card-text">On <b> {{val.date}}</b> at <b> {{val.time}}</b></p>
         </div>
       </div>
     </div>

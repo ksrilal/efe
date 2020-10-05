@@ -5,6 +5,12 @@ import { AngularFirestore } from '@angular/fire/firestore';
   providedIn: 'root'
 })
 export class DashboardService {
+  deleteAnounce(val: any) {
+    this.afs.collection('anouncements').doc(val).delete();
+  }
+  getAnouncement() {
+    return this.afs.collection('anouncements').valueChanges();
+  }
   commentDelete(pemail: any, cemail: any, comment: any) {
     this.afs.collection('posts').doc(pemail).collection('comment').doc(cemail).delete();
     this.afs.collection('posts').doc(pemail).update({comment: comment});
@@ -38,5 +44,9 @@ export class DashboardService {
 
   getUser(user) {
     return this.afs.collection('user').doc(user).valueChanges();
+  }
+
+  getCourses() {
+    return this.afs.collection('courses').valueChanges();
   }
 }
