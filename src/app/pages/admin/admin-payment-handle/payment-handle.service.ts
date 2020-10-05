@@ -21,10 +21,10 @@ export class PaymentHandleService {
       status: "not paid",
     }).then(function() {
         
-        alert("Payment successfully Mark As Not Paid!");
+      console.log("Payment successfully Mark As Not Paid!");
     })
     .catch(function(error) {
-        alert("Something Went Wrong!");
+        console.log("Something Went Wrong!");
     }); 
   }
 

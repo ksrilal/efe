@@ -75,16 +75,15 @@ export class AdminPaymentHandleComponent implements OnInit {
   id;
   semail;
   resetAllInvoice() {
-    
+    if (window.confirm("Are you sure that you want to reset invoices?")) {
     this.source.forEach(element => {
-      this.semail = element.semail;
-      this.id = element.id;
-      console.log(this.semail);
-      console.log(this.id);
-      if (window.confirm("Are you sure that you want to reset invoices?")) {
+        this.semail = element.semail;
+        this.id = element.id;
+        //console.log(this.semail);
+        //console.log(this.id);
         this.PaymentHandleService.resetInvoice(this.semail, this.id);
-      }
-    });
+      });
+    }
   }
 
   // downloadPDF(divId) {

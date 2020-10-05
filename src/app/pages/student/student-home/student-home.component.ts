@@ -65,8 +65,11 @@ export class StudentHomeComponent implements OnInit {
   settings2 = {
     actions: {
       add: false,
-      delete: false,
       edit: false,
+    },
+    delete: {
+      deleteButtonContent: '<i class="nb-trash"></i>',
+      confirmDelete: true
     },
     columns: {
       cuid: {
@@ -99,6 +102,16 @@ export class StudentHomeComponent implements OnInit {
     },
   }; 
 
+  onDeleteConfirm(event): void {
+    if(event.data.status != "paid"){
+      if (window.confirm("Are you sure you want to delete?")) {
+        this.StudentHomeService.deleteMyCourse(this.user, event.data.cuid)
+      } 
+    }else {
+      alert("This Course has been Paid, so you can not remove this course untill next month.");
+    }
+    
+  }
 
   source1;
   source2;
