@@ -57,8 +57,10 @@ export class LoginService {
                 // console.log(val);
                 localStorage.setItem("role", val["role"]);
                 localStorage.setItem("mail", email);
+                localStorage.setItem("pic", val["pic"])
                 console.log(localStorage.getItem("role"));
                 console.log(localStorage.getItem("mail"));
+                console.log(localStorage.getItem("pic"));
               });
   
             this.angularFireAuth.signInWithEmailAndPassword(email, password)

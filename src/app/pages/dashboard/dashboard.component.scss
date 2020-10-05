@@ -35,3 +35,9 @@
         top: 0;
         width: 450px;
     }
+
+    .scroll {
+      height: auto;
+      max-height: 600px;
+      overflow: auto;
+    }
