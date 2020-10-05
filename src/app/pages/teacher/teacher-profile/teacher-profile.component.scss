@@ -1,4 +1,39 @@
-nb-card-body {
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 600px;
+  margin: auto;
+  text-align: center;
+}
+
+p {
+  color: black;
+  font-size: 22px;
+}
+
+button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: rgb(41, 0, 59);
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 22px;
+  color: rgb(41, 0, 59);
+}
+
+button:hover, a:hover {
+  opacity: 0.7;
+}
+
+/*nb-card-body {
     overflow: visible;
     padding-top: 0;
   
@@ -40,4 +75,4 @@ nb-card-body {
   nb-card.inline-form-card nb-card-body {
     padding-bottom: 0;
   }
-  
+  */

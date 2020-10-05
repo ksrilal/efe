@@ -1,4 +1,25 @@
-<div class="row">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="card">
+  <p><button>My Profile</button></p>
+  <img src="{{userData.pic}}" alt="{{userData.name}}" style="width:100%">
+  <h1>{{userData.name}}</h1>
+  <p>Contact : {{userData.mobile}}</p>
+  <br>
+  <p>{{userData.des}}</p>
+  <br>
+  <a href="#"><i class="fa fa-twitter"></i></a>
+  <br>
+  <a href="#"><i class="fa fa-linkedin"></i></a>
+  <br>
+  <a href="#"><i class="fa fa-facebook"></i></a>
+  <br>
+  <br>
+</div>
+
+
+<!--
+  <div class="row">
     <div class="col-lg-6">
       <nb-card>
         <nb-card-header>My Profile</nb-card-header>
@@ -6,7 +27,7 @@
             <label class="image-upload-container btn btn-bwm">             
                 <span class="col-auto  px-5 ml-3"><img src="{{userData.pic}}" width="300" height="300" class=" align-self-center" id="displayPhoto"></span>
             </label>
-          <!-- <input type="text" nbInput fullWidth placeholder="Register Number" required> -->
+         
 
         <div class="full-name-inputs">
           <label type="text" class="col-sm-4" required>Name</label>
@@ -29,10 +50,10 @@
       </nb-card>
     </div>  
   </div>
-  <!-- <div class="form-group">
+   <div class="form-group">
     <button  class="btn btn-lg btn-black btn-info">Sumbit</button>
   </div>  -->
 
-  
+
 
 
