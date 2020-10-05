@@ -15,6 +15,7 @@
 
 
     <div class="col-6">
+      
 
       <!--- Post Form Begins -->
               <section class="card">
@@ -49,125 +50,128 @@
               </section>
               <!--- Post Form Ends -->
 
-      <!-- Post Begins -->
+      <div class="scroll">
+        <!-- Post Begins -->
       <div *ngFor="let item of postData.slice().reverse()">
 
-      <section class="card mt-4">
-        <div class="border p-2">
-          <!-- post header -->
-          <div class="row m-0">
-            <div class="">
-              <a class="text-decoration-none" >
-                <img class="" src="{{item.pic}}" width="50" height="50" alt="...">
-              </a>
-            </div>
-            <div class="flex-grow-1 pl-2">
-              <a class="text-decoration-none" >
-                <h2 class="text-capitalize h5 mb-0">{{item.name}}</h2>
-              </a> 
-              <p class="small text-secondary m-0 mt-1">{{item.timestring}}</p>
-            </div>
-            
-            <div class="dropdown"  *ngIf="userMail == item.email || userData.role == 'admin'">
-              <a class=""  role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="fas fa-chevron-down"></i>
-              </a>
-
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" >
-                <a class="dropdown-item text-primary" (click)="editPostOpen(item.email, item.post)" >Edit</a>
-                <a class="dropdown-item text-primary" (click)="deletePost(item.email)" >Delete</a>
+        <section class="card mt-4">
+          <div class="border p-2">
+            <!-- post header -->
+            <div class="row m-0">
+              <div class="">
+                <a class="text-decoration-none" >
+                  <img class="" src="{{item.pic}}" width="50" height="50" alt="...">
+                </a>
+              </div>
+              <div class="flex-grow-1 pl-2">
+                <a class="text-decoration-none" >
+                  <h2 class="text-capitalize h5 mb-0">{{item.name}}</h2>
+                </a> 
+                <p class="small text-secondary m-0 mt-1">{{item.timestring}}</p>
+              </div>
+              
+              <div class="dropdown"  *ngIf="userMail == item.email || userData.role == 'admin'">
+                <a class=""  role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-chevron-down"></i>
+                </a>
+  
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" >
+                  <a class="dropdown-item text-primary" (click)="editPostOpen(item.email, item.post)" >Edit</a>
+                  <a class="dropdown-item text-primary" (click)="deletePost(item.email)" >Delete</a>
+                </div>
               </div>
             </div>
-          </div>
-          <!-- post body -->
-          <div class="">
-            <p class="my-2">{{item.post}}
-            </p>
-          </div>
-          <hr class="my-1">
-
-          <!-- post footer begins -->
-          <footer class="">
-            <!-- post actions -->
+            <!-- post body -->
             <div class="">
-              <ul class="list-group list-group-horizontal">
-                <li class="list-group-item flex-fill text-center p-0 px-lg-2 border border-0">
-                  <a type="button" class="small text-decoration-none" (click)="likePost(item.email, item.like)" href="#" onClick="return false;">
-                    <i class="far fa-thumbs-up"></i> {{item.like}} Like
-                  </a>
-                </li>
-                <li class="list-group-item flex-fill text-center p-0 px-lg-2 border border-right-0 border-top-0 border-bottom-0">
-                  <a class="small text-decoration-none" data-toggle="collapse" href="#collapseExample" (click)="commentBlockMail(item.email)" role="button" aria-expanded="false" aria-controls="collapseExample">
-                    <i class="fas fa-comment-alt"></i> {{item.comment}} Comment
-                  </a>
-                </li>
-              </ul>
+              <p class="my-2">{{item.post}}
+              </p>
             </div>
-            
-
-            <!-- collapsed comments begins -->
-            <div class="collapse" id="collapseExample" *ngIf="item.email == commentBlock">
-              <div class="card border border-right-0 border-left-0 border-bottom-0 mt-1">
-                <!-- new comment form -->
-                <section class="mt-3">
-                  <form [formGroup]="formEdit" (ngSubmit)="addComment()">
-                    <div class="input-group input-group">
-                      <input type="text" class="form-control" placeholder="Write Comment" formControlName="edit" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                      <div class="input-group-append">
-                        <button type="button" class="btn btn-primary" (click)="addComment(item.email, item.comment)">Comment</button>
+            <hr class="my-1">
+  
+            <!-- post footer begins -->
+            <footer class="">
+              <!-- post actions -->
+              <div class="">
+                <ul class="list-group list-group-horizontal">
+                  <li class="list-group-item flex-fill text-center p-0 px-lg-2 border border-0">
+                    <a type="button" class="small text-decoration-none" (click)="likePost(item.email, item.like)" href="#" onClick="return false;">
+                      <i class="far fa-thumbs-up"></i> {{item.like}} Like
+                    </a>
+                  </li>
+                  <li class="list-group-item flex-fill text-center p-0 px-lg-2 border border-right-0 border-top-0 border-bottom-0">
+                    <a class="small text-decoration-none" data-toggle="collapse" href="#collapseExample" (click)="commentBlockMail(item.email)" role="button" aria-expanded="false" aria-controls="collapseExample">
+                      <i class="fas fa-comment-alt"></i> {{item.comment}} Comment
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              
+  
+              <!-- collapsed comments begins -->
+              <div class="collapse" id="collapseExample" *ngIf="item.email == commentBlock">
+                <div class="card border border-right-0 border-left-0 border-bottom-0 mt-1">
+                  <!-- new comment form -->
+                  <section class="mt-3">
+                    <form [formGroup]="formEdit" (ngSubmit)="addComment()">
+                      <div class="input-group input-group">
+                        <input type="text" class="form-control" placeholder="Write Comment" formControlName="edit" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                          <button type="button" class="btn btn-primary" (click)="addComment(item.email, item.comment)">Comment</button>
+                        </div>
                       </div>
-                    </div>
-                  </form>
-                </section>
-                <!-- comment card bgins -->
-                <div *ngFor="let data of commentData.slice().reverse()">
-                <section>
-                  <div class="card p-2 mt-3">
-                    <!-- comment header -->
-                    <div class="d-flex">
-                      <div class="">
-                        <a class="text-decoration-none" >
-                          <img class="profile-pic" src="{{data.pic}}" width="40" height="40" alt="...">
-                        </a>
-                      </div>
-                      <div class="flex-grow-1 pl-2">
-                        <a class="text-decoration-none text-capitalize h6 m-0" >{{data.name}}</a>
-                        <p class="small m-0 text-muted">{{data.timestring}}</p>
-                      </div>
-                      <div >
-                        <div class="dropdown" *ngIf="userMail == item.email || userData.role == 'admin' || userMail == data.email" >
-                          <a class=""  role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <i class="fas fa-chevron-down"></i>
+                    </form>
+                  </section>
+                  <!-- comment card bgins -->
+                  <div *ngFor="let data of commentData.slice().reverse()">
+                  <section>
+                    <div class="card p-2 mt-3">
+                      <!-- comment header -->
+                      <div class="d-flex">
+                        <div class="">
+                          <a class="text-decoration-none" >
+                            <img class="profile-pic" src="{{data.pic}}" width="40" height="40" alt="...">
                           </a>
-
-                          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <a class="dropdown-item text-primary" (click)="deleteComment(item.email, data.email, item.comment)" >Delete</a>
+                        </div>
+                        <div class="flex-grow-1 pl-2">
+                          <a class="text-decoration-none text-capitalize h6 m-0" >{{data.name}}</a>
+                          <p class="small m-0 text-muted">{{data.timestring}}</p>
+                        </div>
+                        <div >
+                          <div class="dropdown" *ngIf="userMail == item.email || userData.role == 'admin' || userMail == data.email" >
+                            <a class=""  role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-chevron-down"></i>
+                            </a>
+  
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                              <a class="dropdown-item text-primary" (click)="deleteComment(item.email, data.email, item.comment)" >Delete</a>
+                            </div>
                           </div>
                         </div>
                       </div>
+                      <!-- comment header -->
+                      <!-- comment body -->
+                      <div class="card-body p-0">
+                        <p class="card-text h7 mb-1">{{data.edit}}</p>
+                        <a class="card-link small" href="#">
+                          <i class="far fa-thumbs-up"></i> 20 Like
+                        </a>
+                      </div>
                     </div>
-                    <!-- comment header -->
-                    <!-- comment body -->
-                    <div class="card-body p-0">
-                      <p class="card-text h7 mb-1">{{data.edit}}</p>
-                      <a class="card-link small" href="#">
-                        <i class="far fa-thumbs-up"></i> 20 Like
-                      </a>
-                    </div>
+                  </section>
                   </div>
-                </section>
+                  <!-- comment card ends -->
+  
                 </div>
-                <!-- comment card ends -->
-
               </div>
-            </div>
-            <!-- collapsed comments ends -->
-          </footer>
-          <!-- post footer ends -->
-        </div>
-      </section>
-
-        </div>
+              <!-- collapsed comments ends -->
+            </footer>
+            <!-- post footer ends -->
+          </div>
+        </section>
+  
+          </div>
+      </div>
+      
       <!-- Post Ends -->
     </div>
 

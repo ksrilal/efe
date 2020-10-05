@@ -20,6 +20,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   userPictureOnly: boolean = false;
   user: any;
   email: string;
+  pic;
 
   themes = [
     {
@@ -56,7 +57,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ngOnInit() {
  
     this.email = localStorage.getItem("mail");
-    // console.log("hi")
+    this.pic = localStorage.getItem("pic")
+    //console.log(this.pic);
     // console.log(this.email)
     // console.log("ho")
 
