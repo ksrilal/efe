@@ -12,7 +12,7 @@ export class ApplyregService {
   constructor(private afs:AngularFirestore) { }
 
   create(data) {
-        this.afs.collection('applyreg').add(data).then(_ => alert("Submit successfll!"));
+        this.afs.collection('applyreg').doc(data.email).set(data).then(_ => alert("Submit successfll!"));
         }
     
 }

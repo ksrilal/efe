@@ -20,6 +20,8 @@ export class DashboardComponent implements OnDestroy {
   userData;
   time;
   postData;
+  courseData;
+  anouncementData;
 
   constructor(private DashboardService: DashboardService, ) {
     this.userMail = localStorage.getItem("mail");
@@ -30,6 +32,12 @@ export class DashboardComponent implements OnDestroy {
 
     DashboardService.getPost().subscribe(result => {
       this.postData = result;
+    });
+    DashboardService.getCourses().subscribe(result => {
+      this.courseData = result;
+    });
+    DashboardService.getAnouncement().subscribe(result => {
+      this.anouncementData = result;
     });
 
   }
@@ -139,6 +147,12 @@ deleteComment(pemail, cemail, comment) {
   comment -= 1;
   if(window.confirm("Do You Want Delete?")) {
     this.DashboardService.commentDelete(pemail, cemail, comment);
+  }
+}
+
+deleteAnounce(val) {
+  if(window.confirm("Do You Want Delete?")) {
+    this.DashboardService.deleteAnounce(val);
   }
 }
 
