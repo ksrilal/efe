@@ -59,7 +59,7 @@ export class TeacherProgressComponent implements OnInit {
 
     TeacherProChatService.getMy(this.senderMail).subscribe(result => {
       this.source = result;
-    });
+    }); 
 
     TeacherProChatService.getUser(this.senderMail).subscribe(result => {
       this.senderData = result;

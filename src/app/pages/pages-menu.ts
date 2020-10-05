@@ -85,7 +85,7 @@ export const admin: NbMenuItem[] = [
     group: true,
   },
  {
-    title: 'Post',
+    title: 'Info',
     icon: 'grid-outline',
     link: '/pages/admin/adminhome',
     //home: true,

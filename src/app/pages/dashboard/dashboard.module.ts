@@ -29,11 +29,13 @@ import { SolarComponent } from './solar/solar.component';
 import { PlayerComponent } from './rooms/player/player.component';
 import { TrafficComponent } from './traffic/traffic.component';
 import { TrafficChartComponent } from './traffic/traffic-chart.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule as ngFormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
-    FormsModule,
+    
+    ngFormsModule,
+    ReactiveFormsModule,
     ThemeModule,
     NbCardModule,
     NbUserModule,

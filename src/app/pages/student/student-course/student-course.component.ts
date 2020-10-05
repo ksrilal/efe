@@ -5,7 +5,7 @@ import { StudentCourseInvoiceService } from "./student-course-invoice.service";
 import { LoginService } from "../../../login/login.service";
 import * as moment from 'moment';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
-
+ 
 @Component({
   selector: 'ngx-student-course',
   templateUrl: './student-course.component.html',
@@ -48,7 +48,7 @@ export class StudentCourseComponent {
   };
 
   source;
-  senderData;
+  userData;
   userMail;
   cuid;
   cname;
@@ -61,12 +61,19 @@ export class StudentCourseComponent {
   temail;
   time;
   tname;
+  userName;
+  userId;
 
   constructor(private StudentCourseInvoiceService: StudentCourseInvoiceService, private LoginService: LoginService,) {
     this.userMail = localStorage.getItem("mail");
 
     StudentCourseInvoiceService.getMy(this.userMail).subscribe(result => {
       this.source = result;
+    });
+    StudentCourseInvoiceService.getUser(this.userMail).subscribe(result => {
+      this.userData = result;
+      this.userName = this.userData.name;
+      this.userId = this.userData.sid;
     });
     
   }
@@ -107,8 +114,9 @@ export class StudentCourseComponent {
 }
 
 pay(){
-  if (window.confirm("Are you sure you want to add this to my courses?")) {
-    this.StudentCourseInvoiceService.addPaid(this.userMail, this.docId, this.cuid, this.date, this.cname, this.temail, this.time, this.tname);
+  if (window.confirm("Are you sure you want to pay this course?")) {
+    //console.log(this.userName, this.userId)
+    this.StudentCourseInvoiceService.addPaid(this.userMail, this.docId, this.cuid, this.date, this.cname, this.temail, this.time, this.tname, this.userName, this.userId);
   }
   this.paymentGetwayBlock = false;
   this.courseBlock = true;

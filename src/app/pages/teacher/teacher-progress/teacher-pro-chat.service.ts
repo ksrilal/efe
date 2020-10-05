@@ -19,7 +19,7 @@ export class TeacherProChatService {
   getChat(cuid) {
     //console.log(cuid);
     return this.afs.collection('chat').doc(cuid).collection('msg', ref => ref.orderBy('time')).valueChanges();
-  }
+  } 
 
 
   send(data, cuid) {
