@@ -1,1 +1,46 @@
-<p>admin-payment-handle works!</p>
+<nb-card>
+    <div class="container" style="margin-top: 10px; margin-bottom: 10px;">
+        <div class="row justify-content-md-center">
+
+            <div class="col-md-3 center-block text-center" style="margin-top: 30px;">
+                <div class="btn-vertical" role="group" aria-label="Basic example">
+                    <button type="button" style="margin-bottom: 5px;" class="btn btn-secondary btn-block active" (click) = "getAllInvoice()">All Courses</button>
+                    <br>
+                    <div *ngFor="let item of courses">
+                        <button type="button" style="margin-bottom: 5px;" class="btn btn-outline-info btn-block" (click) = "getInvoice(item.cuid)">{{item.cuid}} / {{item.name}}</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-9" #htmlData>
+                <nb-card-header>
+                    <nb-card-body>
+                        <h6>Payments</h6>
+                    </nb-card-body>
+                </nb-card-header>
+              
+                <nb-card-body>
+                  <ng2-smart-table [settings]="settings" [source]="table" (rowSelect)="handleSelected($event)">
+                  </ng2-smart-table>  
+                </nb-card-body>
+            </div>
+        </div>
+
+        <div class="row justify-content-between">
+            <div class="col-md-3 center-block text-center" style="margin-top: 30px;" >
+                <div class="btn-vertical" role="group" aria-label="Basic example">
+                    <button type="button" style="margin-bottom: 5px;" class="btn btn-danger btn-block" (click) = "resetAllInvoice()" title="Mark Courses As Not Paid">Reset Invoices</button>
+                </div>
+            </div>
+            <div class="col-md-3 center-block text-center" style="margin-top: 30px;">
+                <div class="btn-vertical" role="group" aria-label="Basic example">
+                    <!-- <button type="button" style="margin-bottom: 5px;" class="btn btn-danger btn-block" (click) = "resetAllInvoice()" title="Mark Courses As Not Paid">Reset Invoices</button> -->
+                    <button type="button" style="margin-bottom: 5px;" class="btn btn-success btn-block" title="Save As PDF" (click)="downloadPDF()">Download PDF</button>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+</nb-card>
+
+

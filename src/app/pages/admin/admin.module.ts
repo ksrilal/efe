@@ -25,6 +25,7 @@ import { AdminAddStudentComponent } from './admin-add-student/admin-add-student.
 import { AdminAddTeacherComponent } from './admin-add-teacher/admin-add-teacher.component';
 import { AdminAddCourseComponent } from './admin-add-course/admin-add-course.component';
 import { FormsModule as ngFormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Ng2SmartTableModule } from 'ng2-smart-table';
 
 
 
@@ -45,6 +46,7 @@ import { FormsModule as ngFormsModule, ReactiveFormsModule } from '@angular/form
     NbUserModule,
     ngFormsModule,
     ReactiveFormsModule,
+    Ng2SmartTableModule
     
   ],
   declarations: [
