@@ -10,6 +10,6 @@ export class AdminCoursService {
   constructor(private afs: AngularFirestore) { }
 
   add(data){
-    this.afs.collection('courses').add(data);
+    this.afs.collection('courses').doc(data.cuid).set(data);
   }
 }

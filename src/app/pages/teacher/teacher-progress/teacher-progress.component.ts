@@ -48,6 +48,7 @@ export class TeacherProgressComponent implements OnInit {
   chatData;
   chat;
   time;
+  userPic;
   //stuData;
 
   studentMarks: StuMarks[] = [];
@@ -55,7 +56,7 @@ export class TeacherProgressComponent implements OnInit {
   constructor(private TeacherProChatService: TeacherProChatService, private LoginService: LoginService, private TeacherProMarksService: TeacherProMarksService) {
 
     this.senderMail = localStorage.getItem("mail");
-    //console.log("userrrrrrr " + this.user);
+    this.userPic = localStorage.getItem("pic");
 
     TeacherProChatService.getMy(this.senderMail).subscribe(result => {
       this.source = result;
@@ -112,7 +113,7 @@ export class TeacherProgressComponent implements OnInit {
       this.form.value['sender'] = this.senderData.name;
       this.form.value['time'] = this.time;
       this.form.value['timestring'] = t;
-
+      this.form.value['pic'] = this.senderData.pic;
 
       this.TeacherProChatService.send(this.form.value, this.cuid);
       // console.log("sdddddddddddkjgvshv");

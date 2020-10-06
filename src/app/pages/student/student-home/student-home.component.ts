@@ -47,7 +47,7 @@ export class StudentHomeComponent implements OnInit {
         title: 'Tutor',
         type: 'string',
       },
-      tid: {
+      date: {
         title: 'Day',
         type: 'string',
       },
@@ -84,7 +84,7 @@ export class StudentHomeComponent implements OnInit {
         title: 'Tutor',
         type: 'string',
       },
-      tid: {
+      date: {
         title: 'Day',
         type: 'string',
       },

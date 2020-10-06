@@ -99,7 +99,7 @@ export const admin: NbMenuItem[] = [
         link: '/pages/admin/adminaddstudent',
       },
       {
-        title: 'Modify Student',
+        title: 'Students Info',
         link: '/pages/admin/adminstudenthandle',
       },
     ]
@@ -113,7 +113,7 @@ export const admin: NbMenuItem[] = [
         link: '/pages/admin/adminaddteacher',
       },
       {
-        title: 'Modify Teacher',
+        title: 'Teachers Info',
         link: '/pages/admin/adminteacherhandle',
       },
     ]
@@ -127,13 +127,13 @@ export const admin: NbMenuItem[] = [
         link: '/pages/admin/adminaddcourse',
       },
       {
-        title: 'Modify Course',
+        title: 'Courses Info',
         link: '/pages/admin/admincoursehandle',
       },
     ]
   },
   {
-    title: 'Payments Handle',
+    title: 'Payments Info',
     icon: 'grid-outline',
     link: '/pages/admin/adminpaymenthandle',
   },
@@ -161,13 +161,13 @@ export const all: NbMenuItem[] = [
   },
   {
     title: 'Courses',
-    icon: 'home-outline',
+    icon: 'grid-outline',
     link: '/pages/student/studenthome',
     //home: true,
   },
   {
     title: 'My Courses',
-    icon: 'pie-chart-outline',
+    icon: 'grid-outline',
     link: '/pages/student/studentprogress',
   },
   {
@@ -177,7 +177,7 @@ export const all: NbMenuItem[] = [
   },
   {
     title: 'Profile',
-    icon: 'edit-2-outline',
+    icon: 'grid-outline',
     link: '/pages/student/studentprofile',
   },
    //**********teacher dashboard
@@ -191,25 +191,25 @@ export const all: NbMenuItem[] = [
     title: 'TEACHER',
     group: true,
   },
+  // {
+  //   title: 'Courses',
+  //   icon: 'grid-outline',
+  //   link: '/pages/teacher/teacherhome',
+  //   //home: true,
+  // },
   {
-    title: 'Teacher Dashboard',
-    icon: 'home-outline',
-    link: '/pages/teacher/teacherhome',
-    //home: true,
-  },
-  {
-    title: 'Teacher Uploads',
-    icon: 'text-outline',
+    title: 'Tutorials',
+    icon: 'grid-outline',
     link: '/pages/teacher/teacherupload',
   },
   {
-    title: 'Teacher Progress',
-    icon: 'pie-chart-outline',
+    title: 'Chat',
+    icon: 'grid-outline',
     link: '/pages/teacher/teacherprogress',
   },
   {
-    title: 'Teacher Profile Setting',
-    icon: 'edit-2-outline',
+    title: 'Profile',
+    icon: 'grid-outline',
     link: '/pages/teacher/teacherprofile',
   },
   //**********admin dashboard
@@ -224,61 +224,61 @@ export const all: NbMenuItem[] = [
     group: true,
   },
  {
-    title: 'Admin Dashboard',
-    icon: 'home-outline',
+    title: 'Info',
+    icon: 'grid-outline',
     link: '/pages/admin/adminhome',
-    home: true,
+    //home: true,
   },
   {
-    title: 'Admin Student Handle',
-    icon: 'text-outline',
+    title: 'Student Handle',
+    icon: 'grid-outline',
     children: [
       {
         title: 'Register Student',
         link: '/pages/admin/adminaddstudent',
       },
       {
-        title: 'Modify Student',
+        title: 'Students Info',
         link: '/pages/admin/adminstudenthandle',
       },
     ]
   },
   {
-    title: 'Admin Teacher Handle',
-    icon: 'pie-chart-outline',
+    title: 'Teacher Handle',
+    icon: 'grid-outline',
     children: [
       {
         title: 'Register Teacher',
         link: '/pages/admin/adminaddteacher',
       },
       {
-        title: 'Modify Teacher',
+        title: 'Teachers Info',
         link: '/pages/admin/adminteacherhandle',
       },
     ]
   },
   {
-    title: 'Admin Course Handle',
-    icon: 'pie-chart-outline',
+    title: 'Course Handle',
+    icon: 'grid-outline',
     children: [
       {
-        title: 'Add Courses',
+        title: 'Add Course',
         link: '/pages/admin/adminaddcourse',
       },
       {
-        title: 'Modify Courses',
+        title: 'Courses Info',
         link: '/pages/admin/admincoursehandle',
       },
     ]
   },
   {
-    title: 'Admin Payments Handle',
-    icon: 'pie-chart-outline',
+    title: 'Payments Info',
+    icon: 'grid-outline',
     link: '/pages/admin/adminpaymenthandle',
   },
-  {
-    title: 'Admin Profile Setting',
-    icon: 'edit-2-outline',
-    link: '/pages/admin/adminprofile',
-  },
+  // {
+  //   title: 'Profile',
+  //   icon: 'grid-outline',
+  //   link: '/pages/admin/adminprofile',
+  // },
 ];

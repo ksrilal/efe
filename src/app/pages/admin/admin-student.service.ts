@@ -9,18 +9,20 @@ import { from } from 'rxjs';
 })
 export class AdminStudentService {
 
-  constructor(private afs: AngularFirestore, private auth: AngularFireAuth) {  }
-
-  add(data){
-
+  constructor(private afs: AngularFirestore, private auth: AngularFireAuth) { 
     var config = {
       apiKey: "AIzaSyBwKnQyDLw1QWZeHU74NQLWNXGC903dlIw",
       authDomain: "e-for-e.firebaseapp.com",
       databaseURL: "https://e-for-e.firebaseio.com",
     };
-    var secondaryApp = firebase.initializeApp(config, "Secondary");
+    this.secondaryApp = firebase.initializeApp(config, "Secondary");
+  }
+
+  secondaryApp;
+
+  add(data){
     
-    secondaryApp
+    this.secondaryApp
     .auth()
     .createUserWithEmailAndPassword(data.email, data.password)
     .then(firebaseUser => {
@@ -35,7 +37,7 @@ export class AdminStudentService {
           .collection("user")
           .doc(firebaseUser.user.email)
           .set(data);
-        secondaryApp.auth().signOut();
+        this.secondaryApp.auth().signOut();
       })
       .catch(err => {
         console.log("HELL" + err.message);

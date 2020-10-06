@@ -57,10 +57,13 @@ export class StudentProgressComponent implements OnInit {
   chat;
   time;
   upData;
+  userPic;
 
   constructor(private StudentProChatService: StudentProChatService, private LoginService: LoginService, private afStorage: AngularFireStorage, private StudentUploadService: StudentUploadService,) {
     
     this.senderMail = localStorage.getItem("mail");
+    this.userPic = localStorage.getItem("pic");
+
     //console.log("userrrrrrr " + this.user);
 
     StudentProChatService.getMy(this.senderMail).subscribe(result => {
@@ -104,6 +107,7 @@ export class StudentProgressComponent implements OnInit {
       this.form.value['sender'] = this.senderData.name;
       this.form.value['time'] = this.time;
       this.form.value['timestring'] = t;
+      this.form.value['pic'] = this.senderData.pic;
 
 
 
