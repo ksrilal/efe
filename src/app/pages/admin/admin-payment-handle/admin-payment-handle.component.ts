@@ -45,7 +45,10 @@ export class AdminPaymentHandleComponent implements OnInit {
 
     PaymentHandleService.getInvoice().subscribe(r => {
       this.source = r;
-      this.table = this.source;
+      // for(let i=0;i<this.source.length;i++){
+      //   this.table[i] = this.source[i];
+      // }
+      this.table = this.source.map(object =>({...object}));
     })
 
    }
@@ -54,19 +57,28 @@ export class AdminPaymentHandleComponent implements OnInit {
   }
 
   getInvoice(cuid) {
-    this.table = null;
+    
+    this.table = this.source.map(object =>({...object}));
+
     // console.log("click click click click");
-    // console.log(cuid);
-    // console.log(this.source.sname);
-    this.source.forEach(element => {
-      if(element.cuid == cuid){
-        this.table = this.source;
+    //console.log("***********");
+    //console.log(this.source.length);
+    for(let i=0; i<this.source.length; i++) {
+      if(this.source[i].cuid != cuid){
+        this.table[i].cuid = "";
+        this.table[i].id = "";
+        this.table[i].name = "";
+        this.table[i].semail = "";
+        this.table[i].sid = "";
+        this.table[i].sname = "";
+        this.table[i].time = "";
+        this.table[i].timeString = "";
       }
-    });
+    }
   }
   
   getAllInvoice(){
-    this.table = this.source;
+    this.table = this.source.map(object =>({...object}));
   }
 
   handleSelected(data) {
