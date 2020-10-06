@@ -68,11 +68,13 @@
                       <p class="mb-1" style="color: rgb(29, 47, 62);" >{{item.des}}</p>
                       <div class="d-flex w-100 justify-content-between">
                         <a href="{{item.file}}" target="_blank" style="text-decoration:none" ><small style="color: rgb(125, 53, 193);" >Download</small></a>
-                        <button type="button" #box value="{{item.name}}" class="btn btn-danger mb-1" style="font-size: x-small; " (click)="upDelete(box.value)">Delete</button> 
+                        <a href="#" onclick='return false;' target="_blank" #box value="{{item.name}}" style="text-decoration:none" (click)="upDelete(item.name)"><small style="color: rgb(245, 26, 7);" >Delete</small></a>
+                        <!-- <button type="button" #box value="{{item.name}}" class="btn btn-danger mb-1" style="font-size: x-small; " >Delete</button> -->
+                        <!-- <button class="btn btn-danger btn-sm rounded-0" #box value="{{item.name}}" type="button" data-toggle="tooltip" data-placement="top" title="Delete" (click)="upDelete(box.value)"><i class="fa fa-trash" ></i></button> -->
                       </div>
                       </a>
                       <div class="btn-group dropright">
-                        <button type="button" #box value="{{item.name}}" class="btn btn-secondary btn-lg btn-block dropdown-toggle" (click)="getSubData(box.value)" style="font-size: small;">
+                        <button type="button" #box value="{{item.name}}" class="btn btn-secondary btn-lg btn-block dropdown-toggle" (click)="getSubData(item.name)" style="font-size: small;">
                           Students' Submisions
                         </button>
                       </div>

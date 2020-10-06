@@ -29,7 +29,7 @@
 
                 <ng-template #thenBlock>
                   <div class="container darker">
-                    <img src="../../../../assets/images/jack.png" alt="Avatar" class="right" style="width:100%;">
+                    <img src="{{userPic}}" alt="Avatar" class="right" style="width:100%;">
                     <h6>{{item.sender}}</h6>
                     <p>{{item.msg}}</p>
                     <span class="time-left">{{item.timestring}}</span>
@@ -38,7 +38,7 @@
 
                 <ng-template #elseBlock>
                   <div class="container">
-                    <img src="../../../../assets/images/nick.png" alt="Avatar" style="width:100%;">
+                    <img src="{{item.pic}}" alt="Avatar" style="width:100%;">
                     <h6>{{item.sender}}</h6>
                     <p>{{item.msg}}</p>
                     <span class="time-right">{{item.timestring}}</span>

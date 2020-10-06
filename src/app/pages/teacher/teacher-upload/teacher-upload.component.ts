@@ -146,6 +146,7 @@ export class TeacherUploadComponent implements OnInit {
   }
 
   upDelete(val) {
+    console.log(val);
     this.TeacherUploadService.upDelete(this.cuid, val);
   }
 
