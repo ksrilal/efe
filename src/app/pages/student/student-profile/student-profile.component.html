@@ -1,4 +1,30 @@
-<div class="row">
+
+ <div class="col-lg-6">
+   
+  <nb-card status="success">
+    <nb-card-header>My Profile</nb-card-header>
+    <nb-card-body>
+ <div class="container">
+  <div class="row">
+          <img src="{{userData.pic}}"
+          alt="" class="img-rounded img-responsive"  width="250" height="300"  />
+      <div class="col-sm-10 col-md-4">
+          <blockquote>
+              <h1>{{userData.name}}</h1> <small><cite title="Source Title">{{userData.email}}  <i class="glyphicon glyphicon-map-marker"></i></cite></small>
+          </blockquote>
+          <p> 
+              <br
+              /> <i class="glyphicon glyphicon-globe"></i> {{userData.mobile}}
+              <br /></p>
+      </div> 
+  </div>
+</div>
+</nb-card-body>
+<nb-card-footer>{{userData.des}}</nb-card-footer>
+</nb-card>
+ </div>
+
+<!-- <div class="row">
   <div class="col-lg-6">
     <nb-card>
       <nb-card-header>My Profile</nb-card-header>
@@ -6,7 +32,6 @@
           <label class="image-upload-container btn btn-bwm">             
               <span class="col-auto  px-5 ml-3"><img src="{{userData.pic}}" width="300" height="300" class=" align-self-center" id="displayPhoto"></span>
           </label>
-        <!-- <input type="text" nbInput fullWidth placeholder="Register Number" required> -->
 
       <div class="full-name-inputs">
         <label type="text" class="col-sm-4" required>Name</label>
@@ -29,10 +54,5 @@
     </nb-card>
   </div>  
 </div>
-<!-- <div class="form-group">
-  <button  class="btn btn-lg btn-black btn-info">Sumbit</button>
-</div>  -->
-
-
-
+ -->  
 
