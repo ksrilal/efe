@@ -3,7 +3,7 @@
 
 
     <div class="col-3">
-      <h6 class="card-title text-center" style="margin-top: 10px; color: cadetblue;">Site Anouncements</h6>
+      <h6 class="card-title text-center" style="margin-top: 10px; color: rgb(255, 255, 255);">Site Anouncements</h6>
       <div class="card" *ngFor="let anounce of anouncementData.slice().reverse()">
         <div class="card-body">
           <h6 class="card-title">{{anounce.name}}</h6>
@@ -24,8 +24,8 @@
                   <div class="card-header">
                       <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
                           <li class="nav-item">
-                              <a class="nav-link active" id="posts-tab" data-toggle="tab" role="tab" aria-controls="posts" aria-selected="true">MAKE
-                                  A POST</a>
+                              <a class="nav-link active" id="posts-tab" data-toggle="tab" role="tab" aria-controls="posts" aria-selected="true"><b>MAKE
+                                  A POST</b></a>
                           </li>
                       </ul>
                   </div>
@@ -178,10 +178,10 @@
 
 
     <div class="col-3" >
-      <h6 class="card-title text-center" style="margin: 10px; color: cadetblue;">Our Courses</h6>
+      <h6 class="card-title text-center" style="margin: 10px; color: rgb(255, 255, 255);">Our Courses</h6>
       <div class="card" *ngFor="let val of courseData">
         <div class="card-body">
-          <h6 class="card-title" style="color: dodgerblue;">{{val.name}}</h6>
+          <h6 class="card-title" style="color: rgb(204, 65, 0);"><b>{{val.name}}</b></h6>
           <h6 class="card-subtitle mb-2 text-muted">{{val.tname}}</h6>
           <h6 class="card-subtitle mb-2 text-muted"><small>{{val.temail}}</small></h6>
           <p class="card-text">On <b> {{val.date}}</b> at <b> {{val.time}}</b></p>
