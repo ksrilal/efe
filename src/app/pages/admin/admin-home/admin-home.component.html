@@ -1,46 +1,51 @@
-<div class="container">
-      <div class="row">
-        <div class="col-md-3" style="background-color: rgb(255, 255, 255);">
-                <h6 class="text-center" style="margin-top: 50px; margin-bottom: 10px;">Make Site Anouncement</h6>
-                
-          <form [formGroup]="form" (ngSubmit)="onSubmit()" style="margin: auto;" >
-            <div class="full-name-inputs">
-              <input type="text" nbInput fullWidth placeholder="Title" formControlName="name"
-                     [placeholder] = "
-                                      name.touched && name.invalid
-                                        ? 'Title Required!'
-                                        : 'Title'
-                                    "
-                     [status]= " name.touched && name.invalid ? 'danger' : 'primary' " >
-            </div>
-            <br>
-              <textarea rows="5" nbInput fullWidth shape="round"
-                        placeholder="Description" formControlName="des"
-                        [placeholder]="des.touched && des.invalid ? 'Description Required!' : 'Description'"
-                        [status]="des.touched && des.invalid ? 'danger' : 'primary' " >
-              </textarea>
-  
-              <div class="d-flex flex-row-reverse">
-                <div class="p-2">
-                  <button  nbButton status="primary" hero [disabled]="form.invalid">Submit</button>
-                </div> 
-              </div>         
-          </form>
-        </div>
+<!-- Admin home -->
 
-        <div class="col-md-9"  style="background-color: rgb(255, 255, 255);">
-          <br>
-            <nb-card>
-                <nb-card-header>
-                    <nb-card-body>
-                        <h5>Applications</h5>
-                    </nb-card-body>
-                </nb-card-header>
-               
-                <nb-card-body>
-                  <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)"></ng2-smart-table>
-                </nb-card-body>
-              </nb-card> 
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-3" style="background-color: rgb(255, 255, 255);">
+            <h6 class="text-center" style="margin-top: 50px; margin-bottom: 10px;">Make Site Anouncement</h6>
+            
+      <form [formGroup]="form" (ngSubmit)="onSubmit()" style="margin: auto;" >
+        <div class="full-name-inputs">
+          <input type="text" nbInput fullWidth placeholder="Title" formControlName="name"
+                 [placeholder] = "
+                                  name.touched && name.invalid
+                                    ? 'Title Required!'
+                                    : 'Title'
+                                "
+                 [status]= " name.touched && name.invalid ? 'danger' : 'primary' " >
         </div>
+        <br>
+          <textarea rows="5" nbInput fullWidth shape="round"
+                    placeholder="Description" formControlName="des"
+                    [placeholder]="des.touched && des.invalid ? 'Description Required!' : 'Description'"
+                    [status]="des.touched && des.invalid ? 'danger' : 'primary' " >
+          </textarea>
+
+          <div class="d-flex flex-row-reverse">
+            <div class="p-2">
+              <button  nbButton status="primary" hero [disabled]="form.invalid">Submit</button>
+            </div> 
+          </div>         
+      </form>
     </div>
+
+    <div class="col-md-9"  style="background-color: rgb(255, 255, 255);">
+      <br>
+        <nb-card>
+            <nb-card-header>
+                <nb-card-body>
+                    <h5>Applications</h5>
+                </nb-card-body>
+            </nb-card-header>
+           
+            <nb-card-body>
+              <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)"></ng2-smart-table>
+            </nb-card-body>
+          </nb-card> 
+    </div>
+</div>
 </div>
