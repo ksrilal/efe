@@ -30,6 +30,7 @@ export class AdminAddCourseComponent implements OnInit {
      this.form.reset();
 
   }
+  
 
   get name() {
     return this.form.get("name");
