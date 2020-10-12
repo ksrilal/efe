@@ -56,10 +56,6 @@ export class AdminAddTeacherComponent implements OnInit {
       .subscribe(a => {
         this.downloadURL = a;
 
-        // console.log("ane mndaaaaaaaaaaaaaaaaaaaa----->>>")
-        // console.log(this.downloadURL);
-        // console.log(this.form.value);
-
       this.form.value.pic = this.downloadURL;
       this.form.value['role'] = "teacher";
       this.AdminTeacherService.add(this.form.value);
